@@ -1,1 +1,0 @@
-/Users/aagvozdev/AndroidStudioProjects/Todo/buildSrc/build/classes/kotlin/main/Config.class:/Users/aagvozdev/AndroidStudioProjects/Todo/buildSrc/build/classes/kotlin/main/Dependency.class

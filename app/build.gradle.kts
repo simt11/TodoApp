@@ -41,6 +41,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.0")
     implementation(project(Config.project))
     implementation(project(Config.task))
+    implementation(project(Config.core))
     implementation("com.google.android.material:material:1.7.0")
     implementation(Dependency.navigationFragment)
     implementation(Dependency.navigationUi)
