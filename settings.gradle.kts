@@ -16,3 +16,4 @@ rootProject.name = "Todo"
 include(":app")
 include(":project")
 include(":task")
+include(":core")
