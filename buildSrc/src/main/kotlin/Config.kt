@@ -1,5 +1,7 @@
 object Config {
-    const val PROJECT_MODULE = ":project"
-    const val TASK_MODULE = ":task"
-    const val CORE_MODULE = ":core"
+	object Modules {
+		const val core = ":core"
+		const val project = ":project"
+		const val task = ":task"
+	}
 }
