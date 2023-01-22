@@ -1,7 +1,6 @@
 import com.android.build.gradle.BaseExtension
 
 extensions.configure<BaseExtension>("android") {
-	namespace = "com.sinx.todo"
 	compileSdkVersion(BuildVersions.compileSdk)
 
 	defaultConfig {

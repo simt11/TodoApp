@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/projectFragment"
-        android:name="com.sinx.todo.project.ProjectFragment"
+        android:name="com.sinx.project.ProjectFragment"
         android:label="ProjectFragment" />
 </navigation>
