@@ -1,8 +1,16 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
+        gradlePluginPortal()
+        mavenLocal()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id.startsWith("com.android")) {
+                useModule("com.android.tools.build:gradle:4.1.0")
+            }
+        }
     }
 }
 dependencyResolutionManagement {
@@ -10,6 +18,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
     }
 }
 rootProject.name = "Todo"

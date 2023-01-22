@@ -18,5 +18,4 @@ dependencies {
     testImplementation(Dependency.Testing.junit)
     androidTestImplementation(Dependency.Testing.junitExt)
     androidTestImplementation(Dependency.Testing.espressoCore)
-
 }

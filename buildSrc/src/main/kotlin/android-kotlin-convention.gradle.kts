@@ -11,9 +11,7 @@ extensions.configure<BaseExtension>("android") {
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-	kotlinOptions{
-		jvmTarget = BuildVersions.java.toString()
-	}
+    kotlinOptions {
+        jvmTarget = BuildVersions.java.toString()
+    }
 }
-
-
