@@ -9,7 +9,7 @@
             android:id="@+id/checkBoxTaskPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="32dp"
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:textSize="34sp"
@@ -42,12 +42,10 @@
             android:id="@+id/imageViewChangePosition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="184dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/baseline_drag_indicator_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewTask"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/baseline_drag_indicator_24" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
