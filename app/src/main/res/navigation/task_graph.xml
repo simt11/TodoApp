@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/taskListFragment"
-        android:name="com.sinx.task.TaskListFragment"
+        android:name="com.sinx.todo.task.TaskListFragment"
         android:label="TaskListFragment" />
 </navigation>
