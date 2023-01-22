@@ -3,6 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/project_data</item>
         <item>@font/project_name</item>
-        <item>@font/title_project</item>
+        <item>@font/project_title</item>
     </array>
 </resources>
