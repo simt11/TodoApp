@@ -21,17 +21,12 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
         binding = ProjectLayoutBinding.inflate(layoutInflater)
 
         binding.rvProjectList.layoutManager = LinearLayoutManager(context)
-        binding.rvProjectList.adapter = ProjectListAdapter(dataListProject())
+        binding.rvProjectList.adapter = ProjectListAdapter(dataListProject(20))
 
         return binding.root
     }
 
-    private fun dataListProject(): ArrayList<ProjectListModel> {
-        val projectListModels = ArrayList<ProjectListModel>()
-        var count = 1
-        for (i in 0..100) {
-            projectListModels.add(ProjectListModel("Project Main ${count++}", "01.02.2023"))
-        }
-        return projectListModels
+    private fun dataListProject(count:Int) = (0..count).map { i->
+        ProjectListModel("Project Main ${i+1}", "01.02.2023")
     }
 }
