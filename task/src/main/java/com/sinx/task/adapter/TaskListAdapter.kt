@@ -1,16 +1,14 @@
 package com.sinx.task.adapter
 
 import android.view.LayoutInflater
+import android.view.OnReceiveContentListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sinx.task.databinding.ItemTaskManagerBinding
 import com.sinx.task.model.TaskItem
 
-class TaskListAdapter : ListAdapter<TaskItem, TaskListAdapter.TaskItemViewHolder>(TaskItemDiffCallback()){
-
-    var onMoreItemClickListener:((TaskItem) -> Unit)? = null
-    var onCheckBoxItemClickListener: ((TaskItem) -> Unit)? = null
+class TaskListAdapter(var listener: OnTaskClickListener) : ListAdapter<TaskItem, TaskListAdapter.TaskItemViewHolder>(TaskItemDiffCallback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskItemViewHolder {
         val binding = ItemTaskManagerBinding.inflate(
@@ -23,14 +21,19 @@ class TaskListAdapter : ListAdapter<TaskItem, TaskListAdapter.TaskItemViewHolder
         holder.binding.textViewTask.text = task.name
         holder.binding.textViewTaskDate.text = task.date
         holder.binding.imageViewChangePosition.setOnClickListener{
-            onMoreItemClickListener?.invoke(task)
+            listener.onMoreItemClickListener(task)
         }
         holder.binding.checkBoxTaskPriority.setOnCheckedChangeListener { button, b ->
-            onCheckBoxItemClickListener?.invoke(task)
+            listener.onCheckBoxItemClickListener(task, b)
         }
     }
 
     class TaskItemViewHolder(
         val binding: ItemTaskManagerBinding
     ) : RecyclerView.ViewHolder(binding.root)
+
+    interface OnTaskClickListener {
+        fun onMoreItemClickListener (item: TaskItem)
+        fun onCheckBoxItemClickListener (item: TaskItem, isChecked: Boolean)
+    }
 }

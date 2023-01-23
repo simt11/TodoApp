@@ -11,16 +11,13 @@ import com.sinx.task.model.TaskItem
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
-    private val taskListAdapter by lazy {
-        TaskListAdapter()
-    }
+    private lateinit var taskListAdapter : TaskListAdapter
 
     private var _binding : TaskListLayoutBinding? = null
     private val binding : TaskListLayoutBinding
     get() = _binding ?: throw RuntimeException("FragmentCoinDetailBinding is null")
 
-    private val taskList = mutableListOf<TaskItem>()
-    private var autoIncrementId = 0
+    private val taskList = createTaskList(20)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,20 +30,26 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        taskListAdapter = TaskListAdapter(object : TaskListAdapter.OnTaskClickListener{
+            override fun onMoreItemClickListener(item: TaskItem) {
+//                TODO("Not yet implemented")
+            }
+
+            override fun onCheckBoxItemClickListener(item: TaskItem, isChecked: Boolean) {
+//                TODO("Not yet implemented")
+            }
+        })
         binding.rvTaskList.adapter = taskListAdapter
         taskListAdapter.submitList(taskList)
     }
 
-    init {
-        for (i in 0 .. 20){
-            val task = TaskItem(i, "Task Manager $i", "07 Jan 23 / Project", true, 1)
-            addTask(task)
-        }
-    }
-    private fun addTask (task: TaskItem) {
-        if (task.id == TaskItem.UNDEFINED_ID) {
-            task.id = autoIncrementId++
-        }
-        taskList.add(task)
+    private fun createTaskList(count:Int) = (0 .. count).map { i ->
+        TaskItem(
+            id=i,
+            name = "Task Manager $i",
+            date = "\"07 Jan 23 / Project\"",
+            enabled = true,
+            priority = 1
+        )
     }
 }
