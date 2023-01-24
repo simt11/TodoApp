@@ -27,6 +27,6 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
     }
 
     private fun dataListProject(count:Int) = (0..count).map { i->
-        ProjectListModel("Project Main ${i+1}", "01.02.2023")
+        ProjectListModel("Project Main ${i+1}", "07 Jan 23")
     }
 }
