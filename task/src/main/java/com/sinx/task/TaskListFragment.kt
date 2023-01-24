@@ -32,11 +32,9 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         super.onViewCreated(view, savedInstanceState)
         taskListAdapter = TaskListAdapter(object : TaskListAdapter.OnTaskClickListener{
             override fun onMoreItemClickListener(item: TaskItem) {
-//                TODO("Not yet implemented")
             }
 
             override fun onCheckBoxItemClickListener(item: TaskItem, isChecked: Boolean) {
-//                TODO("Not yet implemented")
             }
         })
         binding.rvTaskList.adapter = taskListAdapter
