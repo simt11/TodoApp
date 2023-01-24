@@ -3,8 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
-    compileSdk = 33
-    compileSdkVersion = "android-33"
+    compileSdk = 32
 
     defaultConfig {
         minSdk = 21
@@ -12,15 +11,14 @@ android {
     }
 
     buildTypes {
-//        release {
-//            isMinifyEnabled = false
-//            proguardFiles(
-//                getDefaultProguardFile("proguard-android-optimize.txt"),
-//                "proguard-rules.pro"
-//            )
-//        }
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
     }
-    buildToolsVersion = "33.0.1"
 }
 
 dependencies {
