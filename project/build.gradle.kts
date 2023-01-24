@@ -10,8 +10,10 @@ plugins {
 dependencies {
     implementation(Dependency.Android.core)
     implementation(Dependency.Compat.appCompat)
+    implementation(project(Config.Modules.core))
 
     implementation(Dependency.Ui.material)
+    implementation(Dependency.Ui.recyclerView)
 
     testImplementation(Dependency.Testing.junit)
     androidTestImplementation(Dependency.Testing.junitExt)

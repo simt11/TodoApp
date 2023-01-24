@@ -4,37 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.sinx.project.adapter.ProjectListAdapter
 import com.sinx.project.data.ProjectListModel
+import com.sinx.project.databinding.ProjectLayoutBinding
 
 class ProjectFragment : Fragment(R.layout.project_layout) {
+    lateinit var binding: ProjectLayoutBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.project_layout, container, false)
+    ): View {
+        binding = ProjectLayoutBinding.inflate(layoutInflater)
 
-        view.findViewById<TextView>(R.id.titleProject)
+        binding.rvProjectList.layoutManager = LinearLayoutManager(context)
+        binding.rvProjectList.adapter = ProjectListAdapter(dataListProject(20))
 
-        val recyclerView = view.findViewById(R.id.rvProjectList) as RecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = ProjectListAdapter(dataListProject())
-
-        return view
+        return binding.root
     }
 
-    private fun dataListProject(): ArrayList<ProjectListModel> {
-        val projectListModels = ArrayList<ProjectListModel>()
-        var count = 1
-        for (i in 0..100) {
-            projectListModels.add(ProjectListModel("Project Main ${count++}", "01.02.2023"))
-        }
-        return projectListModels
+    private fun dataListProject(count:Int) = (0..count).map { i->
+        ProjectListModel("Project Main ${i+1}", "01.02.2023")
     }
 }
