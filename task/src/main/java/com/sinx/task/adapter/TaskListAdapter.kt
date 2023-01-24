@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sinx.task.databinding.ItemTaskManagerBinding
 import com.sinx.task.model.TaskItem
 
-class TaskListAdapter(var listener: OnTaskClickListener) : ListAdapter<TaskItem, TaskListAdapter.TaskItemViewHolder>(TaskItemDiffCallback()){
+class TaskListAdapter(var listener: OnTaskClickListener) : ListAdapter<TaskItem, TaskItemViewHolder>(TaskItemDiffCallback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskItemViewHolder {
         val binding = ItemTaskManagerBinding.inflate(
@@ -27,10 +27,6 @@ class TaskListAdapter(var listener: OnTaskClickListener) : ListAdapter<TaskItem,
             listener.onCheckBoxItemClickListener(task, b)
         }
     }
-
-    class TaskItemViewHolder(
-        val binding: ItemTaskManagerBinding
-    ) : RecyclerView.ViewHolder(binding.root)
 
     interface OnTaskClickListener {
         fun onMoreItemClickListener (item: TaskItem)
