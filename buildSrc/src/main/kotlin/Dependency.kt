@@ -17,15 +17,16 @@ object Dependency {
         const val appCompat = "androidx.appcompat:appcompat:$compatVersion"
     }
 
-	object Ui {
-		private const val materialVersion = "1.7.0"
-		private const val constraintLayoutVersion = "2.1.4"
-		private const val recyclerViewVersion = "1.2.1"
+    object Ui {
+        private const val materialVersion = "1.7.0"
+        private const val constraintLayoutVersion = "2.1.4"
+        private const val recyclerViewVersion = "1.2.1"
 
-		const val material = "com.google.android.material:material:$materialVersion"
-		const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-		const val recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
-	}
+        const val material = "com.google.android.material:material:$materialVersion"
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+        const val recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    }
 
     object Testing {
         private const val junitVersion = "4.13.2"

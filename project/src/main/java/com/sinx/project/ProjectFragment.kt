@@ -21,12 +21,13 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
         binding = ProjectLayoutBinding.inflate(layoutInflater)
 
         binding.rvProjectList.layoutManager = LinearLayoutManager(context)
-        binding.rvProjectList.adapter = ProjectListAdapter(dataListProject(20))
+        binding.rvProjectList.adapter = ProjectListAdapter(dataListProject())
 
         return binding.root
     }
 
-    private fun dataListProject(count:Int) = (0..count).map { i->
-        ProjectListModel("Project Main ${i+1}", "07 Jan 23")
+    @Suppress("MagicNumber")
+    private fun dataListProject() = (0..20).map { i ->
+        ProjectListModel("Project Main ${i + 1}", "07 Jan 23")
     }
 }
