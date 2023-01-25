@@ -1,26 +1,12 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-}
-android {
-    compileSdk = 32
+    id(Config.Plugins.androidLibrary)
+    id(Config.Plugins.androidKotlin)
 
-    defaultConfig {
-        minSdk = 21
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
+    id(Config.Plugins.conventionAppConfig)
+    id(Config.Plugins.conventionBuildTypes)
+    id(Config.Plugins.conventionKotlin)
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.7.0")
+    implementation(Dependency.Android.core)
 }
