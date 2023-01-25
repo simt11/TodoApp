@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    //Версия должна быть такая же как у Gradle в`Config.Plugins.Versions.kt`
+    // Версия должна быть такая же как у Gradle в`Config.Plugins.Versions.kt`
     implementation("com.android.tools.build:gradle:7.3.1")
 
     // Версия должна быть такая же как у Kotlin в `Config.Plugins.Versions.kt`

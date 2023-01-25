@@ -3,7 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
-    namespace = "com.sinx.core"
     compileSdk = 32
 
     defaultConfig {
