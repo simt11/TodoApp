@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/inter_semibold"
+            android:fontFamily="@font/font_inter_semibold"
             android:text="Task Manager"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -34,10 +34,10 @@
             android:id="@+id/textViewTaskDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter"
+            android:fontFamily="@font/font_inter_regular"
             android:text="07 Jan 23 / Project"
             android:textColor="@color/black"
-            android:textSize="10sp"
+            android:textSize="8sp"
             app:layout_constraintStart_toEndOf="@+id/checkBoxTaskPriority"
             app:layout_constraintTop_toBottomOf="@+id/textViewTask" />
 
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="25dp"
-            android:src="@drawable/baseline_drag_indicator_24"
+            android:src="@drawable/moving"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
