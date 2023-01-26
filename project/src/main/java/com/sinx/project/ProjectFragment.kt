@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinx.project.adapter.ProjectListAdapter
 import com.sinx.project.data.ProjectListModel
 import com.sinx.project.databinding.ProjectLayoutBinding
+import com.sinx.project.decoration.DividerItemDecorator
+import com.sinx.core.R as core_R
+
 
 class ProjectFragment : Fragment(R.layout.project_layout) {
     lateinit var binding: ProjectLayoutBinding
@@ -22,6 +25,12 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
 
         binding.rvProjectList.layoutManager = LinearLayoutManager(context)
         binding.rvProjectList.adapter = ProjectListAdapter(dataListProject())
+        binding.rvProjectList.addItemDecoration(
+            DividerItemDecorator(
+                requireContext(),
+                core_R.drawable.divider
+            )
+        )
 
         return binding.root
     }
