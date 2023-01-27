@@ -7,10 +7,13 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
-class DividerItemDecorator(
+class DividerItemDecoration(
     context: Context,
     resId: Int
 ) : RecyclerView.ItemDecoration() {
+    companion object {
+        const val DIVIDER_LEFT = 88
+    }
 
     private val mDivider: Drawable = ContextCompat.getDrawable(context, resId)!!
 
@@ -19,11 +22,10 @@ class DividerItemDecorator(
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        val dividerLeft = 88
-        val dividerRight: Int = parent.width - 88
+        val dividerLeft = DIVIDER_LEFT
+        val dividerRight: Int = parent.width - DIVIDER_LEFT
 
         for (i in 0 until parent.childCount - 2) {
-
             if (i != parent.childCount - 1) {
                 val child: View = parent.getChildAt(i)
                 val params = child.layoutParams as RecyclerView.LayoutParams
