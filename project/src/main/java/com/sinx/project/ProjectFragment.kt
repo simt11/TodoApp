@@ -24,16 +24,16 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
 
         binding.rvProjectList.layoutManager = LinearLayoutManager(context)
         binding.rvProjectList.adapter = ProjectListAdapter(dataListProject())
-        binding.rvProjectList.addItemDecoration(
-            DividerItemDecoration(
-                requireContext(),
-                core_R.drawable.divider
-            )
-        )
+
+        val decorator =  DividerItemDecoration(requireContext(), core_R.drawable.divider)
+        decorator.setStartPosition(3)
+        decorator.setIsDrawLastItem(false)
+
+        binding.rvProjectList.addItemDecoration(decorator)
+
         return binding.root
     }
 
-    @Suppress("MagicNumber")
     private fun dataListProject() = (0..20).map { i ->
         ProjectListModel("Project Main ${i + 1}", "07 Jan 23")
     }
