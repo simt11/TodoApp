@@ -16,6 +16,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
+            <nav-graph android:value="@navigation/project_add_new_graph" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

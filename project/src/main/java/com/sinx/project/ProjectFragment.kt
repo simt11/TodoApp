@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinx.project.adapter.ProjectListAdapter
 import com.sinx.project.data.ProjectListModel
@@ -30,6 +34,14 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
                 ContextCompat.getDrawable(requireContext(), core_R.drawable.divider)
             )
         )
+
+        binding.projectAddNew.setOnClickListener {
+            val request = NavDeepLinkRequest.Builder
+                .fromUri("app://project.BottomSheetAddProjectFragment".toUri())
+                .build()
+            findNavController().navigate(request)
+        }
+
         return binding.root
     }
 
