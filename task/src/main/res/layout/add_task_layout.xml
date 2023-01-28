@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="24dp"
+    android:paddingHorizontal="32dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:theme="@style/Theme.Todo">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        style="@style/TextHeader"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/inputName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/rounded_input_background"
+        android:hint="@string/oops"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        android:textColorHint="@color/black"
+        android:fontFamily="@font/font_inter_medium"
+        android:includeFontPadding="false"
+        android:imeOptions="actionDone"
+        android:autofillHints=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/project"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/project"
+        android:includeFontPadding="false"
+        style="@style/TextHeader"
+        app:layout_constraintTop_toBottomOf="@id/inputName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/selectedProject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/font_inter_medium"
+        style="@style/TextValue"
+        app:layout_constraintTop_toBottomOf="@id/inputName"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="No project" />
+
+    <TextView
+        android:id="@+id/priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="@string/priority"
+        android:includeFontPadding="false"
+        style="@style/TextHeader"
+        app:layout_constraintTop_toBottomOf="@id/project"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/selectedPriority"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/black"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/project">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:background="#F0F0F0" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/repeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="@string/repeat"
+        android:includeFontPadding="false"
+        style="@style/TextHeader"
+        app:layout_constraintTop_toBottomOf="@id/priority"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/selectedRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        style="@style/TextValue"
+        app:layout_constraintTop_toBottomOf="@id/priority"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="No"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addTask"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_button_background"
+        android:fontFamily="@font/font_inter_medium"
+        android:includeFontPadding="false"
+        android:letterSpacing="0"
+        android:text="@string/add_new_task"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/black"
+        app:rippleColor="@color/ripple_black"
+        app:layout_constraintTop_toBottomOf="@id/repeat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
