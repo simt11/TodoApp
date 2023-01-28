@@ -9,4 +9,5 @@ plugins {
 
 dependencies {
     implementation(Dependency.Android.core)
+    implementation(Dependency.Ui.material)
 }
