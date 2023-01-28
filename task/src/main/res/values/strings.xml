@@ -1,4 +1,5 @@
 <resources>
+    <string name="new_task">New Task</string>
     <string name="name">Name</string>
     <string name="oops">Oops</string>
     <string name="project">Project</string>

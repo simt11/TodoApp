@@ -1,11 +1,12 @@
 package com.sinx.task
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.sinx.task.databinding.TaskListLayoutBinding
 
@@ -25,10 +26,16 @@ class TaskListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupListeners()
+    }
+
+    private fun setupListeners() {
         with (binding) {
             addTask.setOnClickListener {
-                val uri = Uri.parse("app://task/taskListFragment/addTaskFragment")
-                findNavController().navigate(uri)
+                val request = NavDeepLinkRequest.Builder
+                    .fromUri(ADD_TASK_URI.toUri())
+                    .build()
+                findNavController().navigate(request)
             }
         }
     }
@@ -36,5 +43,9 @@ class TaskListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val ADD_TASK_URI = "app://task/taskListFragment/addTaskFragment"
     }
 }

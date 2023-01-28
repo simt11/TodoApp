@@ -24,9 +24,24 @@ class AddTaskFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupListeners()
+        initMockValues()
+    }
+
+    private fun setupListeners() {
+        with (binding) {
+            back.setOnClickListener {
+                activity?.supportFragmentManager?.popBackStack()
+            }
+        }
+    }
+
+    private fun initMockValues() {
         with (binding) {
             selectedProject.text = "No project"
-            selectedPriority.setBackgroundColor(getColor(requireContext(), com.sinx.core.R.color.grey))
+            selectedPriority.setBackgroundColor(
+                getColor(requireContext(), com.sinx.core.R.color.light_grey)
+            )
             selectedRepeat.text = "No"
         }
     }
