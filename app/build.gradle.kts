@@ -45,7 +45,7 @@ dependencies {
     implementation(Dependency.Ui.material)
     implementation(Dependency.Ui.constraintLayout)
 
-    implementation(project(Con';/sqfig.Modules.core))
+    implementation(project(Config.Modules.core))
     implementation(project(Config.Modules.project))
     implementation(project(Config.Modules.task))
 
