@@ -5,5 +5,4 @@ import com.sinx.task.databinding.ItemTaskManagerBinding
 
 class TaskItemViewHolder(
     val binding: ItemTaskManagerBinding
-) : RecyclerView.ViewHolder(binding.root) {
-}
+) : RecyclerView.ViewHolder(binding.root)
