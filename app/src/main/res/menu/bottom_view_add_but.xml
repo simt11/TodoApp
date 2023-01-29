@@ -4,18 +4,18 @@
 
     <item
         android:id="@id/task_graph"
-        android:icon="@android:drawable/"
+        android:icon="@drawable/vector_1"
         android:title="Calendar"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@id/project_graph"
-        android:icon="@android:drawable/arrow_up_float"
+        android:icon="@drawable/vector_2"
         android:title="List"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@id/project_graph"
-        android:icon="@android:drawable/arrow_up_float"
+        android:icon="@drawable/rectangle_19"
         android:title="Menu"
         app:showAsAction="ifRoom"/>
 
