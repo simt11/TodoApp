@@ -11,7 +11,7 @@ import com.sinx.task.databinding.AddTaskLayoutBinding
 class AddTaskFragment : Fragment() {
     private var _binding: AddTaskLayoutBinding? = null
     private val binding: AddTaskLayoutBinding
-        get() = _binding ?: throw RuntimeException("AddTaskLayoutBinding is null")
+        get() = checkNotNull(_binding)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +29,7 @@ class AddTaskFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        with (binding) {
+        with(binding) {
             back.setOnClickListener {
                 activity?.supportFragmentManager?.popBackStack()
             }
@@ -37,7 +37,7 @@ class AddTaskFragment : Fragment() {
     }
 
     private fun initMockValues() {
-        with (binding) {
+        with(binding) {
             selectedProject.text = "No project"
             selectedPriority.setBackgroundColor(
                 getColor(requireContext(), com.sinx.core.R.color.light_grey)

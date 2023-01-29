@@ -13,7 +13,7 @@ import com.sinx.task.databinding.TaskListLayoutBinding
 class TaskListFragment : Fragment() {
     private var _binding: TaskListLayoutBinding? = null
     private val binding: TaskListLayoutBinding
-        get() = _binding ?: throw RuntimeException("TaskListLayoutBinding is null")
+        get() = checkNotNull(_binding)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +30,7 @@ class TaskListFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        with (binding) {
+        with(binding) {
             addTask.setOnClickListener {
                 val request = NavDeepLinkRequest.Builder
                     .fromUri(ADD_TASK_URI.toUri())
