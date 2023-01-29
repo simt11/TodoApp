@@ -1,0 +1,9 @@
+<resources>
+    <string name="new_task">New Task</string>
+    <string name="name">Name</string>
+    <string name="oops">Oops</string>
+    <string name="project">Project</string>
+    <string name="priority">Priority</string>
+    <string name="repeat">Repeat</string>
+    <string name="add_new_task">Add new task</string>
+</resources>
