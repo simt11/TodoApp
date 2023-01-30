@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinx.project.adapter.ProjectListAdapter
@@ -26,8 +27,7 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
         binding.rvProjectList.adapter = ProjectListAdapter(dataListProject())
         binding.rvProjectList.addItemDecoration(
             DividerItemDecoration(
-                requireContext(),
-                core_R.drawable.divider
+                ContextCompat.getDrawable(requireContext(), core_R.drawable.divider)
             )
         )
         return binding.root
