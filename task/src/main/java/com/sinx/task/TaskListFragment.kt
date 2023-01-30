@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import com.sinx.task.adapter.TaskListAdapter
 import com.sinx.task.databinding.TaskListLayoutBinding
 import com.sinx.task.model.TaskItem
@@ -30,7 +33,8 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        taskListAdapter = TaskListAdapter(object : TaskListAdapter.OnTaskClickListener {
+	    setupListeners()
+	    taskListAdapter = TaskListAdapter(object : TaskListAdapter.OnTaskClickListener {
             override fun onMoreItemClickListener(item: TaskItem) {
 //                TODO
             }
@@ -43,6 +47,17 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         taskListAdapter.submitList(taskList)
     }
 
+	private fun setupListeners() {
+		with(binding) {
+			addTask.setOnClickListener {
+				val request = NavDeepLinkRequest.Builder
+					.fromUri(ADD_TASK_URI.toUri())
+					.build()
+				findNavController().navigate(request)
+			}
+		}
+	}
+
     private fun createTaskList(count: Int) = (0..count).map { i ->
         TaskItem(
             id = i,
@@ -53,7 +68,13 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         )
     }
 
+	override fun onDestroyView() {
+		super.onDestroyView()
+		_binding = null
+	}
+
     companion object {
         const val item_number = 20
+	    private const val ADD_TASK_URI = "app://task/taskListFragment/addTaskFragment"
     }
 }
