@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_today">Today</string>
+    <string name="today">Today</string>
+    <string name="task_manager_example">Task Manager</string>
+    <string name="_07_jan_23_project_example">07 Jan 23 / Project</string>
+</resources>
