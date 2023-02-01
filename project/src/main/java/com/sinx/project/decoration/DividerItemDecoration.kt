@@ -9,10 +9,6 @@ class DividerItemDecoration(
     private val mDivider: Drawable?
 ) : RecyclerView.ItemDecoration() {
 
-    companion object {
-        const val DIVIDER_LEFT = 88
-    }
-
     override fun onDraw(
         c: Canvas,
         parent: RecyclerView,
@@ -23,8 +19,8 @@ class DividerItemDecoration(
             val childAdapterPosition = parent.getChildAdapterPosition(view)
                 .let { if (it == RecyclerView.NO_POSITION) return else it }
             if (childAdapterPosition in 0 until itemCount - 1) {
-                val dividerLeft = DIVIDER_LEFT
-                val dividerRight: Int = parent.width - DIVIDER_LEFT
+                val dividerLeft = view.left + view.paddingLeft
+                val dividerRight: Int = view.right + view.paddingRight
                 val dividerTop: Int = view.bottom
                 val dividerBottom: Int =
                     view.bottom + (mDivider?.intrinsicHeight ?: 0) + view.paddingBottom
