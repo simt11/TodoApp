@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sinx.project.databinding.BottomSheetAddNewProjectBinding
 import com.sinx.core.R as core_R
