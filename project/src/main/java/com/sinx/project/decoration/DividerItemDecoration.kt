@@ -23,7 +23,7 @@ class DividerItemDecoration(
                 val dividerRight: Int = view.right + view.paddingRight
                 val dividerTop: Int = view.bottom
                 val dividerBottom: Int =
-                    view.bottom + (mDivider?.intrinsicHeight ?: 0) + view.paddingBottom
+                    view.bottom + (mDivider?.intrinsicHeight ?: 0)
 
                 mDivider?.setBounds(dividerLeft, dividerTop, dividerRight, dividerBottom)
                 mDivider?.draw(c)
