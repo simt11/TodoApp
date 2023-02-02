@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainProject"
     android:layout_width="match_parent"
-    android:layout_height="54dp"
+    android:layout_height="wrap_content"
+    android:paddingTop="12dp"
+    android:paddingBottom="11dp"
     android:layout_marginHorizontal="32dp">
 
         <TextView
             android:id="@+id/nameProject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/font_inter_semibold"
             tools:text="Project Main"
             android:textSize="16sp"
@@ -36,9 +38,9 @@
             android:id="@+id/movingProject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="19dp"
-            app:layout_constraintTop_toTopOf="@+id/mainProject"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="@+id/mainProject"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/moving"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
