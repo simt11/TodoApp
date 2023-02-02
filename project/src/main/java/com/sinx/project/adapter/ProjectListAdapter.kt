@@ -15,7 +15,7 @@ internal class ProjectListAdapter(private val projectListModels: List<ProjectLis
         fun bind(projectListModel: ProjectListModel) {
             binding.nameProject.text = projectListModel.nameProject
             binding.dataProject.text = projectListModel.dataProject
-            binding.movingProject.setImageResource(core_R.drawable.moving)
+            binding.movingProject.setImageResource(core_R.drawable.ic_moving)
         }
     }
 
