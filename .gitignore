@@ -1,4 +1,16 @@
 *.iml
+*.temp
+*.DS_Store
+**/out/
+projectFilesBackup/
+
+**/.idea/*
+
+!.idea/encodings.xml
+!.idea/inspectionProfiles/
+!.idea/dictionaries/
+!.idea/runConfigurations/
+!.idea/scopes/
 .gradle
 /local.properties
 /.idea/caches
@@ -9,6 +21,7 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+/buildSrc/build
 /captures
 .externalNativeBuild
 .cxx

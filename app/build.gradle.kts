@@ -1,51 +1,35 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Config.Plugins.androidApplication)
+    id(Config.Plugins.androidKotlin)
+
+    id(Config.Plugins.conventionAppConfig)
+    id(Config.Plugins.conventionBuildTypes)
+    id(Config.Plugins.conventionKotlin)
 }
 
 android {
-    namespace = "com.sinx.todo"
-    compileSdk = 33
-
     defaultConfig {
         applicationId = "com.sinx.todo"
-        minSdk = 21
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        versionCode = BuildVersions.versionCode
+        versionName = BuildVersions.versionName
     }
 }
 
 dependencies {
+    implementation(Dependency.Android.core)
+    implementation(Dependency.Compat.appCompat)
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.0")
-    implementation(project(Config.project))
-    implementation(project(Config.task))
-    implementation("com.google.android.material:material:1.7.0")
-    implementation(Dependency.navigationFragment)
-    implementation(Dependency.navigationUi)
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(Dependency.Navigation.fragment)
+    implementation(Dependency.Navigation.ui)
+
+    implementation(Dependency.Ui.material)
+    implementation(Dependency.Ui.constraintLayout)
+
+    implementation(project(Config.Modules.core))
+    implementation(project(Config.Modules.project))
+    implementation(project(Config.Modules.task))
+
+    testImplementation(Dependency.Testing.junit)
+    androidTestImplementation(Dependency.Testing.junitExt)
+    androidTestImplementation(Dependency.Testing.espressoCore)
 }

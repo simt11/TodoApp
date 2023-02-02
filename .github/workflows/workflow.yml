@@ -1,0 +1,21 @@
+name: Ci Checks
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+    branches: [ "develop" ]
+jobs:
+  detekt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout"
+        uses: actions/checkout@v3
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: "Start Detekt"
+        run: ./gradlew detektAll
+      - name: "Run unit tests"
+        run: ./gradlew test
+#      - name: "Run ui tests"
+#        run: ./gradlew connectedAndroidTest
+      - name: "Build Project"
+        run: ./gradlew assembleDebug
