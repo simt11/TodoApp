@@ -10,4 +10,6 @@ plugins {
 dependencies {
     implementation(Dependency.Android.core)
     implementation(Dependency.Ui.material)
+    implementation(Dependency.Ui.constraintLayout)
+    implementation(Dependency.Ui.material)
 }

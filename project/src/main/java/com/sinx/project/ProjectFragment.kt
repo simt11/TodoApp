@@ -34,13 +34,12 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
             )
         )
 
-        binding.projectAddNew.setOnClickListener {
+        binding.buttonConstraint.buttonAddNew.setOnClickListener {
             val request = NavDeepLinkRequest.Builder
                 .fromUri("app://project.BottomSheetAddProjectFragment".toUri())
                 .build()
             findNavController().navigate(request)
         }
-
         return binding.root
     }
 
