@@ -5,27 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constrainTitle"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="@dimen/start_margin_toolbar"
+        android:layout_marginTop="@dimen/top_margin_toolbar"
+        android:includeFontPadding="false"
+        android:text="@string/today"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:fontFamily="@font/font_inter_bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/font_inter_bold"
-            android:text="@string/today"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constrainTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:listitem="@layout/item_task_manager" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,12 +39,12 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="41dp"
         app:backgroundTint="@color/black"
-        app:rippleColor="@color/ripple_black"
-        app:srcCompat="@drawable/add"
-        app:tint="@color/white"
         app:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/ripple_black"
+        app:srcCompat="@drawable/add"
+        app:tint="@color/white"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

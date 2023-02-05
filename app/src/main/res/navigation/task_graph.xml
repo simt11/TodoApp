@@ -8,11 +8,12 @@
         android:id="@+id/taskListFragment"
         android:name="com.sinx.task.TaskListFragment"
         android:label="TaskListFragment" />
+
     <fragment
         android:id="@+id/addTaskFragment"
         android:name="com.sinx.task.AddTaskFragment"
         android:label="AddTaskFragment">
-        <deepLink app:uri="app://task/taskListFragment/addTaskFragment"/>
+        <deepLink app:uri="app://task/addTaskFragment"/>
     </fragment>
 
 </navigation>
