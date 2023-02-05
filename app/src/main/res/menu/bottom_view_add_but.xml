@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@id/task_graph"
+        android:icon="@drawable/vector_1"
+        android:title="Calendar"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@id/project_graph"
+        android:icon="@drawable/vector_2"
+        android:title="List"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@id/menu_graph"
+        android:icon="@drawable/rectangle_19"
+        android:title="Menu"
+        app:showAsAction="ifRoom"/>
+
+</menu>
