@@ -28,8 +28,9 @@
         app:layout_constraintTop_toBottomOf="@id/titleProject" />
 
     <include
+        android:id="@+id/button_constraint"
         layout="@layout/add_button"
-        android:id="@+id/button_constraint"/>
+        />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
