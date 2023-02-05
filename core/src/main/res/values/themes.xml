@@ -48,23 +48,24 @@
     </style>
 
     <style name="ButtonBold" parent="@android:style/TextAppearance">
-    <item name="android:textSize">@dimen/button_text_size</item>
-    <item name="android:includeFontPadding">false</item>
-    <item name="android:fontFamily">@font/font_inter_bold</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/font_inter_bold</item>
+    </style>
 
-    <style name="S1Medium" parent="@android:style/TextAppearance">
+    <style name="Subtitle1" parent="@android:style/TextAppearance">
         <item name="android:textSize">@dimen/s1_text_size</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/font_inter_medium</item>
     </style>
 
-    <style name="Subtitle1" parent="@android:style/TextAppearance">
+    <style name="Subtitle2" parent="@android:style/TextAppearance">
         <item name="android:textSize">@dimen/s2_text_size</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/font_inter_regular</item>
     </style>
 
-    <style name="Subtitle2" parent="@android:style/TextAppearance">
+    <style name="Subtitle3" parent="@android:style/TextAppearance">
         <item name="android:textSize">@dimen/s3_text_size</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/font_inter_regular</item>
