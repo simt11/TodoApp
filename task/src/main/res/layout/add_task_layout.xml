@@ -9,19 +9,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginHorizontal="32dp">
+        android:layout_marginTop="@dimen/add_task_layout_constraint_top"
+        android:layout_marginHorizontal="@dimen/add_task_layout_constraint_horizontal">
 
         <ImageButton
             android:id="@+id/back"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="@dimen/add_task_layout_back_size"
+            android:layout_height="@dimen/add_task_layout_back_size"
             android:scaleType="fitXY"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/back"
-            app:layout_constraintBottom_toBottomOf="@id/title"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/title"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
@@ -30,8 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/add_task_layout_title_start"
             android:text="@string/new_task"
-            android:textSize="24sp"
-            style="@style/TextHeader"
+            style="@style/Headline1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/back"
             app:layout_constraintBottom_toBottomOf="@id/back"/>
@@ -42,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/add_task_layout_name_top"
             android:text="@string/name"
-            style="@style/TextHeader"
+            style="@style/Headline4"
             app:layout_constraintTop_toBottomOf="@id/back"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -54,19 +53,16 @@
             android:paddingVertical="@dimen/add_task_layout_input_name_vertical"
             android:paddingHorizontal="@dimen/add_task_layout_input_name_horizontal"
             android:background="@drawable/rounded_input_background"
-            android:textCursorDrawable="@drawable/rounded_input_cursor"
+            android:textCursorDrawable="@drawable/input_cursor"
             android:hint="@string/oops"
             android:inputType="textPersonName"
-            android:textSize="14sp"
-            android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:fontFamily="@font/font_inter_medium"
-            android:includeFontPadding="false"
             android:imeOptions="actionDone"
             android:autofillHints=""
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            style="@style/Body2"
             app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
@@ -75,27 +71,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/add_task_layout_project_top"
             android:text="@string/project"
-            android:includeFontPadding="false"
-            style="@style/TextHeader"
+            style="@style/Headline4"
             app:layout_constraintTop_toBottomOf="@id/input_name"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/selected_project"
+            android:id="@+id/selectedProject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/add_task_layout_project_top"
-            android:fontFamily="@font/font_inter_medium"
-            style="@style/TextValue"
+            style="@style/Body1"
             app:layout_constraintTop_toBottomOf="@id/input_name"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="No project" />
 
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_project"
+            android:id="@+id/groupProject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="project, selected_project" />
+            app:constraint_referenced_ids="project, selectedProject" />
 
         <TextView
             android:id="@+id/priority"
@@ -103,13 +97,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/add_task_layout_priority_top"
             android:text="@string/priority"
-            android:includeFontPadding="false"
-            style="@style/TextHeader"
+            style="@style/Headline4"
             app:layout_constraintTop_toBottomOf="@id/project"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/selected_priority"
+            android:id="@+id/selectedPriority"
             android:layout_width="@dimen/add_task_layout_selected_priority_size"
             android:layout_height="@dimen/add_task_layout_selected_priority_size"
             android:layout_marginTop="@dimen/add_task_layout_selected_priority_top"
@@ -117,11 +110,11 @@
             android:insetBottom="0dp"
             android:stateListAnimator="@null"
             app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/project"
             app:rippleColor="@null"
             app:strokeColor="@color/black"
             app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/project"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:backgroundTint="@color/light_grey"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -129,25 +122,24 @@
             android:id="@+id/group_priority"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="priority, selected_priority" />
+            app:constraint_referenced_ids="priority, selectedPriority" />
 
         <TextView
             android:id="@+id/repeat"
-            style="@style/TextHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/add_task_layout_repeat_top"
-            android:includeFontPadding="false"
             android:text="@string/repeat"
+            style="@style/Headline4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/priority" />
 
         <TextView
-            android:id="@+id/selected_repeat"
+            android:id="@+id/selectedRepeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/add_task_layout_repeat_top"
-            style="@style/TextValue"
+            style="@style/Body1"
             app:layout_constraintTop_toBottomOf="@id/priority"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="No"/>
@@ -156,10 +148,10 @@
             android:id="@+id/group_repeat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="repeat, selected_repeat" />
+            app:constraint_referenced_ids="repeat, selectedRepeat" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/add_task"
+            android:id="@+id/addTask"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/add_task_layout_add_task_top"
@@ -167,12 +159,10 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/add_new_task"
-            android:textSize="16sp"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:letterSpacing="0"
-            android:fontFamily="@font/font_inter_medium"
-            android:includeFontPadding="false"
+            style="@style/Body1"
             app:cornerRadius="20dp"
             app:backgroundTint="@color/black"
             app:rippleColor="@color/ripple_black"
