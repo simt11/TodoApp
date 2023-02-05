@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/top_margin_toolbar"
+        android:layout_marginTop="26dp"
         android:layout_marginHorizontal="32dp">
 
         <ImageButton
@@ -28,7 +28,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/add_task_layout_title_start"
             android:text="@string/new_task"
             android:textSize="24sp"
             style="@style/TextHeader"
@@ -40,19 +40,19 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/add_task_layout_name_top"
             android:text="@string/name"
             style="@style/TextHeader"
             app:layout_constraintTop_toBottomOf="@id/back"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/inputName"
+            android:id="@+id/input_name"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
-            android:paddingVertical="12dp"
-            android:paddingHorizontal="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/add_task_layout_input_name_top"
+            android:paddingVertical="@dimen/add_task_layout_input_name_vertical"
+            android:paddingHorizontal="@dimen/add_task_layout_input_name_horizontal"
             android:background="@drawable/rounded_input_background"
             android:textCursorDrawable="@drawable/rounded_input_cursor"
             android:hint="@string/oops"
@@ -73,29 +73,35 @@
             android:id="@+id/project"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/add_task_layout_project_top"
             android:text="@string/project"
             android:includeFontPadding="false"
             style="@style/TextHeader"
-            app:layout_constraintTop_toBottomOf="@id/inputName"
+            app:layout_constraintTop_toBottomOf="@id/input_name"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/selectedProject"
+            android:id="@+id/selected_project"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/add_task_layout_project_top"
             android:fontFamily="@font/font_inter_medium"
             style="@style/TextValue"
-            app:layout_constraintTop_toBottomOf="@id/inputName"
+            app:layout_constraintTop_toBottomOf="@id/input_name"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="No project" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="project, selected_project" />
 
         <TextView
             android:id="@+id/priority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="@dimen/add_task_layout_priority_top"
             android:text="@string/priority"
             android:includeFontPadding="false"
             style="@style/TextHeader"
@@ -103,10 +109,10 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/selectedPriority"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
+            android:id="@+id/selected_priority"
+            android:layout_width="@dimen/add_task_layout_selected_priority_size"
+            android:layout_height="@dimen/add_task_layout_selected_priority_size"
+            android:layout_marginTop="@dimen/add_task_layout_selected_priority_top"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:stateListAnimator="@null"
@@ -119,33 +125,45 @@
             tools:backgroundTint="@color/light_grey"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-        <TextView
-            android:id="@+id/repeat"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_priority"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:text="@string/repeat"
-            android:includeFontPadding="false"
-            style="@style/TextHeader"
-            app:layout_constraintTop_toBottomOf="@id/priority"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:constraint_referenced_ids="priority, selected_priority" />
 
         <TextView
-            android:id="@+id/selectedRepeat"
+            android:id="@+id/repeat"
+            style="@style/TextHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="@dimen/add_task_layout_repeat_top"
+            android:includeFontPadding="false"
+            android:text="@string/repeat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/priority" />
+
+        <TextView
+            android:id="@+id/selected_repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/add_task_layout_repeat_top"
             style="@style/TextValue"
             app:layout_constraintTop_toBottomOf="@id/priority"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="No"/>
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_repeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="repeat, selected_repeat" />
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/addTask"
+            android:id="@+id/add_task"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginTop="@dimen/add_task_layout_add_task_top"
+            android:layout_marginBottom="@dimen/add_task_layout_add_task_bottom"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/add_new_task"
