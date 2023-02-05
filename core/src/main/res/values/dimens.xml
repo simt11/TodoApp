@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="headline_text_size">24sp</dimen>
+    <dimen name="top_margin_toolbar">26dp</dimen>
+    <dimen name="start_margin_toolbar">32dp</dimen>
 </resources>
