@@ -14,7 +14,7 @@
         android:title="List"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@id/project_graph"
+        android:id="@id/menu_graph"
         android:icon="@drawable/rectangle_19"
         android:title="Menu"
         app:showAsAction="ifRoom"/>
