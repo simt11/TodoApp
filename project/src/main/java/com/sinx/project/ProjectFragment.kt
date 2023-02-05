@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sinx.core.databinding.AddButtonBinding
 import com.sinx.project.adapter.ProjectListAdapter
 import com.sinx.project.data.ProjectListModel
 import com.sinx.project.databinding.ProjectLayoutBinding
@@ -17,14 +18,17 @@ import com.sinx.project.decoration.DividerItemDecoration
 import com.sinx.core.R as core_R
 
 class ProjectFragment : Fragment(R.layout.project_layout) {
+
     lateinit var binding: ProjectLayoutBinding
+    lateinit var addButtonBinding: AddButtonBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = ProjectLayoutBinding.inflate(layoutInflater)
+        binding = ProjectLayoutBinding.inflate(layoutInflater, container, false)
+        addButtonBinding = AddButtonBinding.bind(binding.root)
 
         binding.rvProjectList.layoutManager = LinearLayoutManager(context)
         binding.rvProjectList.adapter = ProjectListAdapter(dataListProject())
@@ -34,13 +38,12 @@ class ProjectFragment : Fragment(R.layout.project_layout) {
             )
         )
 
-        binding.buttonConstraint.
-//            .setOnClickListener {
-//            val request = NavDeepLinkRequest.Builder
-//                .fromUri("app://project.BottomSheetAddProjectFragment".toUri())
-//                .build()
-//            findNavController().navigate(request)
-//        }
+        addButtonBinding.buttonAddNew.setOnClickListener {
+            val request = NavDeepLinkRequest.Builder
+                .fromUri("app://project.BottomSheetAddProjectFragment".toUri())
+                .build()
+            findNavController().navigate(request)
+        }
         return binding.root
     }
 
