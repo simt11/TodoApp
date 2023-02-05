@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/input_name"
+            android:id="@+id/inputName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/add_task_layout_input_name_top"
@@ -72,7 +72,7 @@
             android:layout_marginTop="@dimen/add_task_layout_project_top"
             android:text="@string/project"
             style="@style/Headline4"
-            app:layout_constraintTop_toBottomOf="@id/input_name"
+            app:layout_constraintTop_toBottomOf="@id/inputName"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/add_task_layout_project_top"
             style="@style/Body1"
-            app:layout_constraintTop_toBottomOf="@id/input_name"
+            app:layout_constraintTop_toBottomOf="@id/inputName"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="No project" />
 
@@ -119,7 +119,7 @@
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_priority"
+            android:id="@+id/groupPriority"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="priority, selectedPriority" />
@@ -145,7 +145,7 @@
             tools:text="No"/>
 
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_repeat"
+            android:id="@+id/groupRepeat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="repeat, selectedRepeat" />

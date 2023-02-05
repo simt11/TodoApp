@@ -33,7 +33,7 @@
         tools:listitem="@layout/item_task_manager" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_task"
+        android:id="@+id/addTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/task_list_layout_add_task_end"
