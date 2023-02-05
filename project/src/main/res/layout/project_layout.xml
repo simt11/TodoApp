@@ -4,34 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintProject"
+    <TextView
+        android:id="@+id/titleProject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="@dimen/start_margin_toolbar"
+        android:layout_marginTop="@dimen/top_margin_toolbar"
+        android:gravity="top"
+        android:includeFontPadding="false"
+        android:text="@string/title_project"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:fontFamily="@font/font_inter_bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/titleProject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/titleProject"
-            android:textAppearance="@style/Headline1"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProjectList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="14dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintProject" />
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleProject" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 name: Ci Checks
 on:
   pull_request:
-    types: [opened, reopened, edited]
-    branches: [ "develop" ]
+    types: [opened, reopened, edited, synchronize]
+    branches: [ "develop", "main" ]
 jobs:
   detekt:
     runs-on: ubuntu-latest
