@@ -11,7 +11,7 @@ plugins {
 dependencies {
     implementation(Dependency.Android.core)
 
-    implementation(Dependency.Room.roomRuntime)
-    implementation(Dependency.Room.roomCompiler)
-    implementation(Dependency.Room.roomKtx)
+    implementation(Dependency.Room.runtime)
+    kapt(Dependency.Room.compiler)
+    implementation(Dependency.Room.ktx)
 }

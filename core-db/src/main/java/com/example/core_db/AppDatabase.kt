@@ -6,8 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.core_db.dao.ProjectDao
 import com.example.core_db.dao.TaskDao
-import com.example.core_db.model.Project
-import com.example.core_db.model.Task
+import com.example.core_db.entity.Project
+import com.example.core_db.entity.Task
 
 @Database(entities = [Task::class, Project::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
