@@ -9,6 +9,8 @@
         <item name="android:statusBarColor">@color/white</item>
 
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
     </style>
 
     <style name="Headline1" parent="@android:style/TextAppearance">
@@ -69,5 +71,13 @@
         <item name="android:textSize">@dimen/s3_text_size</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/font_inter_regular</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_background</item>
     </style>
 </resources>

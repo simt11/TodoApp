@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sinx.project.databinding.BottomSheetAddNewProjectBinding
+import com.sinx.core.R as core_R
 
 class BottomSheetAddProjectFragment :
     BottomSheetDialogFragment(R.layout.bottom_sheet_add_new_project) {
@@ -24,6 +25,6 @@ class BottomSheetAddProjectFragment :
     }
 
     override fun getTheme(): Int {
-        return R.style.BottomSheetDialogTheme
+        return core_R.style.BottomSheetDialogTheme
     }
 }
