@@ -62,7 +62,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         TaskItem(
             id = i,
             name = "Task Manager $i",
-            date = "\"07 Jan 23 / Project\"",
+            date = "07 Jan 23 / Project",
             enabled = true,
             priority = 1
         )
@@ -74,7 +74,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
     }
 
     companion object {
-        const val item_number = 20
+        const val item_number = 3
         private const val ADD_TASK_URI = "app://task/addTaskFragment"
     }
 }
