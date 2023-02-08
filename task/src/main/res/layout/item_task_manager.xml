@@ -5,40 +5,35 @@
     android:id="@+id/constraintTask"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="32dp"
-    android:paddingTop="20dp"
-    android:paddingBottom="13dp">
+    android:paddingLeft="17dp"
+    android:paddingTop="9dp"
+    android:paddingRight="32dp"
+    android:paddingBottom="7dp">
 
     <CheckBox
         android:id="@+id/checkBoxTaskPriority"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/textViewTask"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:includeFontPadding="false"
-        android:paddingLeft="11dp"
+        android:paddingTop="13dp"
         android:textAppearance="@style/Headline3"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/checkBoxTaskPriority"
         app:layout_constraintTop_toTopOf="@+id/constraintTask"
-        tools:text="Task Manager"
-
-        />
+        tools:text="Task Manager" />
 
     <TextView
         android:id="@+id/textViewTaskDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
-        android:paddingLeft="11dp"
         android:textAppearance="@style/Subtitle3"
         android:textColor="@color/grey"
         app:layout_constraintStart_toEndOf="@+id/checkBoxTaskPriority"
@@ -49,7 +44,6 @@
         android:id="@+id/imageViewChangePosition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="@+id/constraintTask"
         app:layout_constraintTop_toTopOf="parent"
