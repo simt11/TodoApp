@@ -1,4 +1,4 @@
-package com.sinx.task.adapter
+package com.sinx.task.presentation.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.sinx.task.databinding.ItemTaskManagerBinding

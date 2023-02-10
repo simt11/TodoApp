@@ -1,4 +1,4 @@
-package com.sinx.task.adapter
+package com.sinx.task.presentation.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.sinx.task.model.TaskItem

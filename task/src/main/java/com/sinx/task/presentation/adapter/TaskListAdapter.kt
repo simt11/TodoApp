@@ -1,4 +1,4 @@
-package com.sinx.task.adapter
+package com.sinx.task.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
