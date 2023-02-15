@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.sinx.task.adapter.TaskListAdapter
 import com.sinx.task.databinding.TaskListLayoutBinding
+import com.sinx.task.decoration.DividerItemDecorationTask
 import com.sinx.task.model.TaskItem
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
@@ -45,6 +47,11 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         })
         binding.rvTaskList.adapter = taskListAdapter
         taskListAdapter.submitList(taskList)
+        binding.rvTaskList.addItemDecoration(
+            DividerItemDecorationTask(
+                ContextCompat.getDrawable(requireContext(), com.sinx.core.R.drawable.divider)
+            )
+        )
     }
 
     private fun setupListeners() {
