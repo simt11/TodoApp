@@ -1,14 +1,16 @@
 package com.sinx.task
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.sinx.task.presentation.adapter.TaskListAdapter
@@ -16,6 +18,8 @@ import com.sinx.task.databinding.TaskListLayoutBinding
 import com.sinx.task.decoration.DividerItemDecorationTask
 import com.sinx.task.model.TaskItem
 import com.sinx.task.presentation.TaskViewModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 import java.util.Collections
 
 import com.sinx.core.R as core_R
@@ -28,7 +32,6 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
     private var _binding: TaskListLayoutBinding? = null
     private val binding: TaskListLayoutBinding
         get() = checkNotNull(_binding)
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,7 +51,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
             }
 
             override fun onCheckBoxItemClickListener(item: TaskItem, isChecked: Boolean) {
-                viewModal.taskIsDone(item)
+                viewModal.taskIsDone(item, isChecked)
             }
         })
         binding.rvTaskList.adapter = taskListAdapter
@@ -58,10 +61,13 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
             )
         )
         viewModal = ViewModelProvider(this)[TaskViewModel::class.java]
-        viewModal.taskList.observe(viewLifecycleOwner){
-            taskListAdapter.submitList(it)
+        lifecycleScope.launchWhenStarted {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModal.taskList.collect {
+                    taskListAdapter.submitList(it)
+                }
+            }
         }
-
     }
 
     private fun setupListeners() {
@@ -81,7 +87,6 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
     }
 
     companion object {
-        const val item_number = 7
         private const val ADD_TASK_URI = "app://task/addTaskFragment"
     }
 }

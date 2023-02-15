@@ -7,6 +7,12 @@ object Dependency {
         const val ui = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     }
 
+//    object Coroutine {
+//        private const val coroutineVersion = "1.6.4"
+//
+//        const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+//    }
+
     object Android {
         private const val coreVersion = "1.9.0"
         const val core = "androidx.core:core-ktx:$coreVersion"

@@ -12,6 +12,8 @@ dependencies {
     implementation(Dependency.Compat.appCompat)
     implementation(project(Config.Modules.core))
 
+//    implementation(Dependency.Coroutine.coroutine)
+
     implementation(Dependency.Navigation.fragment)
     implementation(Dependency.Navigation.ui)
 
