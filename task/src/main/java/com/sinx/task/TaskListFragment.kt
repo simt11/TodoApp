@@ -13,6 +13,7 @@ import com.sinx.task.adapter.TaskListAdapter
 import com.sinx.task.databinding.TaskListLayoutBinding
 import com.sinx.task.decoration.DividerItemDecorationTask
 import com.sinx.task.model.TaskItem
+import com.sinx.core.R as core_R
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
@@ -49,7 +50,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         taskListAdapter.submitList(taskList)
         binding.rvTaskList.addItemDecoration(
             DividerItemDecorationTask(
-                ContextCompat.getDrawable(requireContext(), com.sinx.core.R.drawable.divider)
+                ContextCompat.getDrawable(requireContext(), core_R.drawable.divider)
             )
         )
     }
