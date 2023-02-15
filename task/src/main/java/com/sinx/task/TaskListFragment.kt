@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.sinx.task.adapter.TaskListAdapter
 import com.sinx.task.databinding.TaskListLayoutBinding
+import com.sinx.task.decoration.DividerItemDecorationTask
 import com.sinx.task.model.TaskItem
+import com.sinx.core.R as core_R
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
@@ -45,6 +48,11 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         })
         binding.rvTaskList.adapter = taskListAdapter
         taskListAdapter.submitList(taskList)
+        binding.rvTaskList.addItemDecoration(
+            DividerItemDecorationTask(
+                ContextCompat.getDrawable(requireContext(), core_R.drawable.divider)
+            )
+        )
     }
 
     private fun setupListeners() {
@@ -62,7 +70,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         TaskItem(
             id = i,
             name = "Task Manager $i",
-            date = "\"07 Jan 23 / Project\"",
+            date = "07 Jan 23 / Project",
             enabled = true,
             priority = 1
         )
@@ -74,7 +82,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
     }
 
     companion object {
-        const val item_number = 20
+        const val item_number = 3
         private const val ADD_TASK_URI = "app://task/addTaskFragment"
     }
 }
