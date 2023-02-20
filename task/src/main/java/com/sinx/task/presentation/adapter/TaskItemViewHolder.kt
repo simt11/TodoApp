@@ -10,7 +10,7 @@ class TaskItemViewHolder(
     var listener: TaskListAdapter.OnTaskClickListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind (task: TaskItem) {
+    fun bind(task: TaskItem) {
         binding.textViewTask.text = task.name
         binding.textViewTaskDate.text = task.date
         binding.imageViewChangePosition.setOnClickListener {
@@ -24,12 +24,11 @@ class TaskItemViewHolder(
 
 class TaskItemIsDoneViewHolder(
     val binding: ItemTaskManagerIsDoneBinding,
-
     var listener: TaskListAdapter.OnTaskClickListener
 
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind (task: TaskItem) {
+    fun bind(task: TaskItem) {
         binding.textViewTask.text = task.name
         binding.textViewTaskDate.text = task.date
         binding.imageViewChangePosition.setOnClickListener {

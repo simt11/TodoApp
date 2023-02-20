@@ -12,14 +12,17 @@ class TaskListAdapter(var listener: OnTaskClickListener) :
     ListAdapter<TaskItem, RecyclerView.ViewHolder>(TaskItemDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding = when(viewType) {
-            VIEW_TYPE_ENABLED -> TaskItemViewHolder(ItemTaskManagerBinding
-                .inflate(LayoutInflater.from(parent.context), parent, false), listener)
-            VIEW_TYPE_DISABLED -> TaskItemIsDoneViewHolder(ItemTaskManagerIsDoneBinding
-                .inflate(LayoutInflater.from(parent.context), parent, false), listener)
-            else ->throw RuntimeException ("unknown view type $viewType")
+        val binding = when (viewType) {
+            VIEW_TYPE_ENABLED -> TaskItemViewHolder(
+                ItemTaskManagerBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                listener
+            )
+            VIEW_TYPE_DISABLED -> TaskItemIsDoneViewHolder(
+                ItemTaskManagerIsDoneBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                listener
+            )
+            else -> throw IllegalArgumentException("unknown view type $viewType")
         }
-
         return binding
     }
 
@@ -27,7 +30,7 @@ class TaskListAdapter(var listener: OnTaskClickListener) :
         val task = getItem(position)
 
         if (task.enabled) {
-                (holder as TaskItemViewHolder).bind(task)
+            (holder as TaskItemViewHolder).bind(task)
         } else {
             (holder as TaskItemIsDoneViewHolder).bind(task)
         }

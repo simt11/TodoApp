@@ -23,6 +23,7 @@ import kotlinx.coroutines.flow.onEach
 import java.util.Collections
 
 import com.sinx.core.R as core_R
+import com.sinx.task.presentation.TaskViewModelFactory
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
@@ -55,12 +56,12 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
             }
         })
         binding.rvTaskList.adapter = taskListAdapter
+        viewModal = ViewModelProvider(this, TaskViewModelFactory())[TaskViewModel::class.java]
         binding.rvTaskList.addItemDecoration(
             DividerItemDecorationTask(
                 ContextCompat.getDrawable(requireContext(), core_R.drawable.divider)
             )
         )
-        viewModal = ViewModelProvider(this)[TaskViewModel::class.java]
         lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModal.taskList.collect {
