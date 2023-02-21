@@ -34,8 +34,8 @@ class TaskItemIsDoneViewHolder(
         binding.imageViewChangePosition.setOnClickListener {
             listener.onMoreItemClickListener(task)
         }
-        binding.checkBoxTaskPriority.setOnCheckedChangeListener { button, b ->
-            listener.onCheckBoxItemClickListener(task, binding.checkBoxTaskPriority.isChecked)
-        }
+//        binding.checkBoxTaskPriority.setOnCheckedChangeListener { button, b ->
+//            listener.onCheckBoxItemClickListener(task, binding.checkBoxTaskPriority.isChecked)
+//        }
     }
 }
