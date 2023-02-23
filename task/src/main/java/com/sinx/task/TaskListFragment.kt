@@ -24,6 +24,7 @@ import java.util.Collections
 
 import com.sinx.core.R as core_R
 import com.sinx.task.presentation.TaskViewModelFactory
+import kotlinx.coroutines.launch
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
@@ -62,7 +63,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
                 ContextCompat.getDrawable(requireContext(), core_R.drawable.divider)
             )
         )
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModal.taskList.collect {
                     taskListAdapter.submitList(it)
