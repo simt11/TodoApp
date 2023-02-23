@@ -10,13 +10,13 @@ class TaskItemViewHolder(
     var listener: TaskListAdapter.OnTaskClickListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(task: TaskItem) {
-        binding.textViewTask.text = task.name
-        binding.textViewTaskDate.text = task.date
-        binding.imageViewChangePosition.setOnClickListener {
+    fun bind(task: TaskItem) = with(binding) {
+        textViewTask.text = task.name
+        textViewTaskDate.text = task.date
+        imageViewChangePosition.setOnClickListener {
             listener.onMoreItemClickListener(task)
         }
-        binding.checkBoxTaskPriority.setOnCheckedChangeListener { button, b ->
+        checkBoxTaskPriority.setOnCheckedChangeListener { button, b ->
             listener.onCheckBoxItemClickListener(task, binding.checkBoxTaskPriority.isChecked)
         }
     }
@@ -25,17 +25,13 @@ class TaskItemViewHolder(
 class TaskItemIsDoneViewHolder(
     val binding: ItemTaskManagerIsDoneBinding,
     var listener: TaskListAdapter.OnTaskClickListener
-
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(task: TaskItem) {
-        binding.textViewTask.text = task.name
-        binding.textViewTaskDate.text = task.date
-        binding.imageViewChangePosition.setOnClickListener {
+    fun bind(task: TaskItem) = with(binding) {
+        textViewTask.text = task.name
+        textViewTaskDate.text = task.date
+        imageViewChangePosition.setOnClickListener {
             listener.onMoreItemClickListener(task)
         }
-//        binding.checkBoxTaskPriority.setOnCheckedChangeListener { button, b ->
-//            listener.onCheckBoxItemClickListener(task, binding.checkBoxTaskPriority.isChecked)
-//        }
     }
 }

@@ -2,8 +2,8 @@ package com.sinx.task.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sinx.task.model.GetListUseCase
-import com.sinx.task.model.TaskIsDoneUseCase
+import com.sinx.task.model.GetTaskListUseCase
+import com.sinx.task.model.TaskReadyUseCase
 import com.sinx.task.model.TaskItem
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -12,10 +12,10 @@ import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.launch
 
 class TaskViewModel(
-    private val getListUseCase: GetListUseCase,
-    private val taskIsDoneUseCase: TaskIsDoneUseCase
+    private val getTaskListUseCase: GetTaskListUseCase,
+    private val taskReadyUseCase: TaskReadyUseCase
 ) : ViewModel() {
-    private val taskFlow = getListUseCase()
+    private val taskFlow = getTaskListUseCase()
 
     private var _taskList = MutableSharedFlow<List<TaskItem>>(replay = 1, onBufferOverflow = BufferOverflow.DROP_LATEST)
     val taskList: SharedFlow<List<TaskItem>> = _taskList
@@ -26,7 +26,7 @@ class TaskViewModel(
     }
     fun taskIsDone(item: TaskItem, isChecked: Boolean) {
         val newItem = item.copy(enabled = !isChecked)
-        taskIsDoneUseCase(newItem)
+        taskReadyUseCase(newItem)
         viewModelScope.launch {
             _taskList.emitAll(taskFlow)
         }
