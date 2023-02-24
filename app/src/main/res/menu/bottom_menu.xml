@@ -4,14 +4,14 @@
 
     <item
         android:id="@id/task_graph"
-        android:icon="@android:drawable/arrow_down_float"
+        android:icon="@drawable/vector_1"
         android:title="Home"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@id/project_graph"
-        android:icon="@android:drawable/arrow_up_float"
+        android:icon="@drawable/vector_2"
         android:title="Favorites"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
 </menu>
