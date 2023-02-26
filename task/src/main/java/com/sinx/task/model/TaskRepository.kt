@@ -6,5 +6,5 @@ interface TaskRepository {
 
     fun taskIsDoneUseCase(item: TaskItem)
 
-    fun getListUseCase(): Flow<List<TaskItem>>
+    suspend fun listTasksFlow(): Flow<List<TaskItem>>
 }

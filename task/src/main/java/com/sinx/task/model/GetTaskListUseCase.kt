@@ -1,6 +1,12 @@
 package com.sinx.task.model
 
-class GetTaskListUseCase(private val repository: TaskRepository) {
+import kotlinx.coroutines.flow.Flow
 
-    operator fun invoke() = repository.getListUseCase()
+class GetTaskListUseCaseImpl(private val repository: TaskRepository) : GetTaskListUseCase {
+
+    override suspend operator fun invoke() = repository.listTasksFlow()
+}
+
+interface GetTaskListUseCase {
+    suspend operator fun invoke(): Flow<List<TaskItem>>
 }

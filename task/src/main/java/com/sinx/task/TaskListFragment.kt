@@ -7,13 +7,10 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
-import com.sinx.task.presentation.adapter.TaskListAdapter
 import com.sinx.task.databinding.TaskListLayoutBinding
 import com.sinx.task.decoration.DividerItemDecorationTask
 import com.sinx.task.model.TaskItem
@@ -21,10 +18,9 @@ import com.sinx.task.presentation.TaskViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import java.util.Collections
-
 import com.sinx.core.R as core_R
 import com.sinx.task.presentation.TaskViewModelFactory
-import kotlinx.coroutines.launch
+import com.sinx.task.presentation.adapter.TaskListAdapter
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
@@ -63,11 +59,9 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
                 ContextCompat.getDrawable(requireContext(), core_R.drawable.divider)
             )
         )
-        lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModal.taskList.collect {
-                    taskListAdapter.submitList(it)
-                }
+        lifecycleScope.launchWhenStarted {
+            viewModal.taskList.collect {
+                taskListAdapter.submitList(it)
             }
         }
     }
