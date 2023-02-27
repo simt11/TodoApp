@@ -15,7 +15,7 @@ class TaskRepositoryImpl : TaskRepository {
     private val taskFlow = MutableSharedFlow<List<TaskItem>>(replay = 1)
     private val scope = CoroutineScope(Dispatchers.IO)
 
-    override fun taskIsDoneUseCase(item: TaskItem) {
+    override fun taskReady(item: TaskItem) {
         val oldIndex = taskList.indexOfFirst { it.id == item.id }
         taskList = taskList.toMutableList()
         taskList.removeAt(oldIndex)
