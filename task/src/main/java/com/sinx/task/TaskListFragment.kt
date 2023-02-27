@@ -15,12 +15,9 @@ import com.sinx.task.databinding.TaskListLayoutBinding
 import com.sinx.task.decoration.DividerItemDecorationTask
 import com.sinx.task.model.TaskItem
 import com.sinx.task.presentation.TaskViewModel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onEach
-import java.util.Collections
-import com.sinx.core.R as core_R
 import com.sinx.task.presentation.TaskViewModelFactory
 import com.sinx.task.presentation.adapter.TaskListAdapter
+import com.sinx.core.R as core_R
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
