@@ -1,7 +1,7 @@
-package com.sinx.task.data
+package com.sinx.taskList.data
 
-import com.sinx.task.model.TaskItem
-import com.sinx.task.model.TaskRepository
+import com.sinx.taskList.TaskItem
+import com.sinx.taskList.model.TaskRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

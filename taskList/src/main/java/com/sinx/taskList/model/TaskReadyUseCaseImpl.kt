@@ -1,4 +1,6 @@
-package com.sinx.task.model
+package com.sinx.taskList.model
+
+import com.sinx.taskList.TaskItem
 
 class TaskReadyUseCaseImpl(private val repository: TaskRepository) : TaskReadyUseCase {
 

@@ -1,9 +1,9 @@
-package com.sinx.task.presentation.adapter
+package com.sinx.taskList.adapter
 
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.sinx.task.databinding.ItemTaskManagerBinding
-import com.sinx.task.model.TaskItem
+import com.sinx.taskList.TaskItem
+import com.sinx.taskList.databinding.ItemTaskManagerBinding
 
 class TaskItemViewHolder(
     private val binding: ItemTaskManagerBinding,

@@ -14,6 +14,8 @@ dependencies {
 
     implementation(Dependency.Ui.material)
 
+    implementation(project(Config.Modules.core))
+
     testImplementation(Dependency.Testing.junit)
     androidTestImplementation(Dependency.Testing.junitExt)
     androidTestImplementation(Dependency.Testing.espressoCore)

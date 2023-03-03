@@ -1,4 +1,4 @@
-package com.sinx.task.model
+package com.sinx.taskList
 
 data class TaskItem(
     val id: Int = UNDEFINED_ID,

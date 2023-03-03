@@ -12,11 +12,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.sinx.task.databinding.TaskListLayoutBinding
-import com.sinx.task.decoration.DividerItemDecorationTask
-import com.sinx.task.model.TaskItem
 import com.sinx.task.presentation.TaskViewModel
 import com.sinx.task.presentation.TaskViewModelFactory
-import com.sinx.task.presentation.adapter.TaskListAdapter
+import com.sinx.taskList.TaskItem
+import com.sinx.taskList.adapter.TaskListAdapter
+import com.sinx.taskList.decoration.DividerItemDecorationTask
 import com.sinx.core.R as core_R
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
@@ -41,8 +41,9 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
         taskListAdapter = TaskListAdapter(object : TaskListAdapter.OnTaskClickListener {
+
             override fun onMoreItemClickListener(item: TaskItem) {
-//                TODO
+//                TODO("Not yet implemented")
             }
 
             override fun onCheckBoxItemClickListener(item: TaskItem, isChecked: Boolean) {
@@ -57,8 +58,8 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
             )
         )
         lifecycleScope.launchWhenStarted {
-            viewModal.taskList.collect {
-                taskListAdapter.submitList(it)
+            viewModal.taskList.collect { item ->
+                taskListAdapter.submitList(item)
             }
         }
     }
