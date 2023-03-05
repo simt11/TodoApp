@@ -42,10 +42,6 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         setupListeners()
         taskListAdapter = TaskListAdapter(object : TaskListAdapter.OnTaskClickListener {
 
-            override fun onMoreItemClickListener(item: TaskItem) {
-//                TODO("Not yet implemented")
-            }
-
             override fun onCheckBoxItemClickListener(item: TaskItem, isChecked: Boolean) {
                 viewModal.taskIsDone(item, isChecked)
             }

@@ -19,9 +19,6 @@ class TaskItemViewHolder(
         imageViewChangePosition.isVisible = task.enabled
         checkBoxTaskPriority.setOnCheckedChangeListener { _, _ -> }
         checkBoxTaskPriority.isChecked = !task.enabled
-        imageViewChangePosition.setOnClickListener {
-            listener.onMoreItemClickListener(task)
-        }
         if (task.enabled) {
             checkBoxTaskPriority.setOnCheckedChangeListener { button, b ->
                 listener.onCheckBoxItemClickListener(task, binding.checkBoxTaskPriority.isChecked)
