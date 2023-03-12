@@ -2,9 +2,9 @@ package com.sinx.task.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sinx.task.data.TaskRepositoryImpl
-import com.sinx.task.model.GetTaskListUseCaseImpl
-import com.sinx.task.model.TaskReadyUseCaseImpl
+import com.sinx.taskList.data.TaskRepositoryImpl
+import com.sinx.taskList.model.GetTaskListUseCaseImpl
+import com.sinx.taskList.model.TaskReadyUseCaseImpl
 
 class TaskViewModelFactory : ViewModelProvider.Factory {
 
