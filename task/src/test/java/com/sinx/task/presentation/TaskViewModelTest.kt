@@ -28,7 +28,7 @@ class TaskViewModelTest {
 
     @Test
     fun checkInitSendListItems() {
-//        begin
+        // begin
         val repo = object : TaskRepository {
             override fun taskReady(item: TaskItem) {
 //                детект ругаеться, на пустое тело
@@ -43,19 +43,19 @@ class TaskViewModelTest {
         val getTaskListUseCase = GetTaskListUseCaseImpl(repo)
         val taskReadyUseCase = TaskReadyUseCaseImpl(repo)
         val viewModel = TaskViewModel(getTaskListUseCase, taskReadyUseCase)
-//        when
+        // when
         viewModel.initialize()
         val actual = viewModel.taskList.replayCache
-//      then
+        // then
         assert(actual.size == 1)
         assert(actual.first() == this.listItems)
     }
 
     @Test
     fun checkTaskIsDone() {
-//        begin
+        // begin
         val taskFlow = MutableSharedFlow<List<TaskItem>>(replay = 1)
-        val scope = CoroutineScope(Dispatchers.Unconfined)
+        val scope = CoroutineScope(Dispatchers.Main)
         var actualItem: TaskItem? = null
         val repo = object : TaskRepository {
             override fun taskReady(item: TaskItem) {
@@ -82,7 +82,7 @@ class TaskViewModelTest {
         val getTaskListUseCase = GetTaskListUseCaseImpl(repo)
         val taskReadyUseCase = TaskReadyUseCaseImpl(repo)
         val viewModel = TaskViewModel(getTaskListUseCase, taskReadyUseCase)
-//        when
+        // when
         viewModel.initialize()
         viewModel.taskIsDone(listItems.first(), true)
 
@@ -92,7 +92,7 @@ class TaskViewModelTest {
             TaskItem("Task Manager 0", "\"07 Jan 23 / Project\"", false, 1)
         )
         val expectedItem = TaskItem("Task Manager 0", "\"07 Jan 23 / Project\"", false, 1)
-//        then
+        // then
         Assert.assertEquals(expectedItem, actualItem)
         Assert.assertEquals(expectedList, actualList)
     }
