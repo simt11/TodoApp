@@ -8,16 +8,13 @@ plugins {
 }
 
 dependencies {
+
     implementation(Dependency.Android.core)
     implementation(Dependency.Compat.appCompat)
 
-    implementation(project(Config.Modules.taskList))
-    implementation(project(Config.Modules.core))
-
-    implementation(Dependency.Navigation.fragment)
-    implementation(Dependency.Navigation.ui)
-
     implementation(Dependency.Ui.material)
+
+    implementation(project(Config.Modules.core))
 
     testImplementation(Dependency.Testing.junit)
     androidTestImplementation(Dependency.Testing.junitExt)

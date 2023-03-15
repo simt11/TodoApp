@@ -1,4 +1,4 @@
-package com.sinx.task.decoration
+package com.sinx.taskList.decoration
 
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
