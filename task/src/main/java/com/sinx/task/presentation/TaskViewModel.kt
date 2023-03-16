@@ -2,9 +2,9 @@ package com.sinx.task.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sinx.task.model.GetTaskListUseCase
-import com.sinx.task.model.TaskItem
-import com.sinx.task.model.TaskReadyUseCase
+import com.sinx.taskList.TaskItem
+import com.sinx.taskList.model.GetTaskListUseCase
+import com.sinx.taskList.model.TaskReadyUseCase
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow

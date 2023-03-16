@@ -1,7 +1,7 @@
-package com.sinx.task.data
+package com.sinx.taskList.data
 
-import com.sinx.task.model.TaskItem
-import com.sinx.task.model.TaskRepository
+import com.sinx.taskList.TaskItem
+import com.sinx.taskList.model.TaskRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -16,7 +16,7 @@ class TaskRepositoryImpl : TaskRepository {
     private val scope = CoroutineScope(Dispatchers.IO)
 
     override fun taskReady(item: TaskItem) {
-        val oldIndex = taskList.indexOfFirst { it.id == item.id }
+        val oldIndex = taskList.indexOfFirst { it.name == item.name }
         taskList = taskList.toMutableList()
         taskList.removeAt(oldIndex)
         taskList.add(item)
@@ -29,7 +29,6 @@ class TaskRepositoryImpl : TaskRepository {
         if (taskList.isEmpty()) {
             for (i in 0..item_number) {
                 val item = TaskItem(
-                    id = i,
                     name = "Task Manager $i",
                     date = "\"07 Jan 23 / Project\"",
                     enabled = true,

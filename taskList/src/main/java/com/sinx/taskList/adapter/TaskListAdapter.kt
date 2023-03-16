@@ -1,10 +1,10 @@
-package com.sinx.task.presentation.adapter
+package com.sinx.taskList.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.sinx.task.databinding.ItemTaskManagerBinding
-import com.sinx.task.model.TaskItem
+import com.sinx.taskList.TaskItem
+import com.sinx.taskList.databinding.ItemTaskManagerBinding
 
 class TaskListAdapter(private var listener: OnTaskClickListener) :
     ListAdapter<TaskItem, TaskItemViewHolder>(TaskItemDiffCallback()) {
@@ -22,7 +22,6 @@ class TaskListAdapter(private var listener: OnTaskClickListener) :
     }
 
     interface OnTaskClickListener {
-        fun onMoreItemClickListener(item: TaskItem)
         fun onCheckBoxItemClickListener(item: TaskItem, isChecked: Boolean)
     }
 }

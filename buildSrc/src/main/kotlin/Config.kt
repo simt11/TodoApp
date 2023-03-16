@@ -3,6 +3,7 @@ object Config {
         const val core = ":core"
         const val project = ":project"
         const val task = ":task"
+        const val taskList = ":taskList"
     }
 
     object Plugins {
