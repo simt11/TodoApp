@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_menu"
-        android:paddingTop="8dp"/>
+        android:paddingTop="8dp"
+        app:itemIconTint="@color/enable_text_color"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
