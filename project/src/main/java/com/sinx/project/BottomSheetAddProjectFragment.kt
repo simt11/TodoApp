@@ -31,7 +31,10 @@ class BottomSheetAddProjectFragment :
         super.onViewCreated(view, savedInstanceState)
         binding.buttonAddProject.setOnClickListener {
             val nameProject = binding.editTextInput.text.toString()
-            setFragmentResult(Constans.REQUEST_KEY, bundleOf(Constans.BUNDLE_KEY to nameProject))
+            setFragmentResult(
+                Constans.ADD_PROJECT_REQUEST_KEY,
+                bundleOf(Constans.ADD_PROJECT_BUNDLE_KEY to nameProject)
+            )
             dismiss()
         }
     }

@@ -3,7 +3,7 @@ package com.sinx.project.domain
 import com.sinx.project.data.ProjectListModel
 import kotlinx.coroutines.flow.Flow
 
-interface ProjectRepository {
+internal interface ProjectRepository {
 
     fun addNewProject(newProject: ProjectListModel)
 

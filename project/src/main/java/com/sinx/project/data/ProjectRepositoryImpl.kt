@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 
-class ProjectRepositoryImpl : ProjectRepository {
+internal class ProjectRepositoryImpl : ProjectRepository {
 
     private var projectList = mutableListOf<ProjectListModel>()
     private val projectFlow = MutableSharedFlow<List<ProjectListModel>>(replay = 1)

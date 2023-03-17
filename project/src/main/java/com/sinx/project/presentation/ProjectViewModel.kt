@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.launch
 
-class ProjectViewModel(
+internal class ProjectViewModel(
     private val addNewProjectUseCaseImpl: AddNewProjectUseCaseImpl,
     private val getNewProjectUseCase: GetNewProjectUseCaseImpl
 ) : ViewModel() {

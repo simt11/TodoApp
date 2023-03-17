@@ -1,6 +1,6 @@
 package com.sinx.project
 
 object Constans {
-    const val REQUEST_KEY = "requestKey"
-    const val BUNDLE_KEY = "bundleKey"
+    const val ADD_PROJECT_REQUEST_KEY = "addProjectRequestKey"
+    const val ADD_PROJECT_BUNDLE_KEY = "addProjectBundleKey"
 }
