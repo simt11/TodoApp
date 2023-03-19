@@ -26,6 +26,11 @@ class TaskViewModelTest {
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
 
+    val listItems = listOf(
+        TaskItem("Task Manager 0", "\"07 Jan 23 / Project\"", true, 1),
+        TaskItem("Task Manager 1", "\"07 Jan 23 / Project\"", true, 1)
+    )
+
     @Test
     fun checkInitSendListItems() {
         // begin
@@ -97,10 +102,25 @@ class TaskViewModelTest {
         Assert.assertEquals(expectedList, actualList)
     }
 
-    val listItems = listOf(
-        TaskItem("Task Manager 0", "\"07 Jan 23 / Project\"", true, 1),
-        TaskItem("Task Manager 1", "\"07 Jan 23 / Project\"", true, 1)
-    )
+    @Test
+    fun errorHandlingTest() {
+        // begin
+        val repo = object : TaskRepository {
+            override fun taskReady(item: TaskItem) {
+            }
+
+            override suspend fun listTasksFlow(): Flow<List<TaskItem>> {
+                return flow {
+                    throw Exception()
+                }
+            }
+        }
+            val getTaskListUseCase = GetTaskListUseCaseImpl(repo)
+            val taskReadyUseCase = TaskReadyUseCaseImpl(repo)
+            val viewModel = TaskViewModel(getTaskListUseCase, taskReadyUseCase)
+            // when
+            viewModel.initialize()
+    }
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)

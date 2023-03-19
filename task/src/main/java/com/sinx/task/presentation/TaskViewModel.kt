@@ -22,7 +22,12 @@ class TaskViewModel(
 
     fun initialize() {
         viewModelScope.launch {
-            _taskList.emitAll(getTaskListUseCase())
+            try {
+                _taskList.emitAll(getTaskListUseCase())
+            } catch (e: Exception){
+
+            }
+
         }
     }
 
