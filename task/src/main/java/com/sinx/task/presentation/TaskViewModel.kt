@@ -24,10 +24,9 @@ class TaskViewModel(
         viewModelScope.launch {
             try {
                 _taskList.emitAll(getTaskListUseCase())
-            } catch (e: Exception){
-
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-
         }
     }
 

@@ -107,6 +107,7 @@ class TaskViewModelTest {
         // begin
         val repo = object : TaskRepository {
             override fun taskReady(item: TaskItem) {
+                // todo
             }
 
             override suspend fun listTasksFlow(): Flow<List<TaskItem>> {
@@ -115,11 +116,11 @@ class TaskViewModelTest {
                 }
             }
         }
-            val getTaskListUseCase = GetTaskListUseCaseImpl(repo)
-            val taskReadyUseCase = TaskReadyUseCaseImpl(repo)
-            val viewModel = TaskViewModel(getTaskListUseCase, taskReadyUseCase)
-            // when
-            viewModel.initialize()
+        val getTaskListUseCase = GetTaskListUseCaseImpl(repo)
+        val taskReadyUseCase = TaskReadyUseCaseImpl(repo)
+        val viewModel = TaskViewModel(getTaskListUseCase, taskReadyUseCase)
+        // when
+        viewModel.initialize()
     }
 }
 
