@@ -27,6 +27,17 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-    </application>
 
+        <receiver
+            android:name="com.sinx.widgetTask.WidgetTaskList"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_task_list_info" />
+        </receiver>
+    </application>
 </manifest>
