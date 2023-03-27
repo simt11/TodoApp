@@ -1,4 +1,4 @@
-package com.sinx.coreDB.dao
+package com.sinx.coredbinterface.dao
 
 import androidx.room.Dao
 

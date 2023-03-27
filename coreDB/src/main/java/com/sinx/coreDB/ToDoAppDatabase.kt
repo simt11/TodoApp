@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.sinx.coreDB.dao.TaskDAO
-import com.sinx.coreDB.entity.ProjectDbModel
-import com.sinx.coreDB.entity.TaskDbModel
+import com.sinx.coredbinterface.dao.TaskDAO
+import com.sinx.coredbinterface.entity.ProjectDbModel
+import com.sinx.coredbinterface.entity.TaskDbModel
 
 @Database(entities = [TaskDbModel::class, ProjectDbModel::class], version = 1, exportSchema = false)
 abstract class ToDoAppDatabase : RoomDatabase() {

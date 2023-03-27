@@ -13,6 +13,7 @@ dependencies {
 
     implementation(project(Config.Modules.taskList))
     implementation(project(Config.Modules.core))
+    implementation(project(Config.Modules.coreDbApi))
 
     implementation(Dependency.Navigation.fragment)
     implementation(Dependency.Navigation.ui)

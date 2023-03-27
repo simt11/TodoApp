@@ -5,6 +5,7 @@ object Config {
         const val task = ":task"
         const val taskList = ":taskList"
         const val coreDB = ":coreDB"
+        const val coreDbApi = ":coreDB:coreDbApi"
     }
 
     object Plugins {

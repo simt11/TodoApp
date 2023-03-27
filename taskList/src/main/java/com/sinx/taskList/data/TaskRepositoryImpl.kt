@@ -1,47 +1,24 @@
 package com.sinx.taskList.data
 
+import com.sinx.coredbinterface.dao.TaskDAO
 import com.sinx.taskList.TaskItem
 import com.sinx.taskList.model.TaskRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.map
 
-class TaskRepositoryImpl : TaskRepository {
+class TaskRepositoryImpl(private val taskDAO: TaskDAO): TaskRepository {
 
-    private var taskList = mutableListOf<TaskItem>()
+    private val mapper = Mapper()
 
-    private val taskFlow = MutableSharedFlow<List<TaskItem>>(replay = 1)
-    private val scope = CoroutineScope(Dispatchers.IO)
-
-    override fun taskReady(item: TaskItem) {
-        val oldIndex = taskList.indexOfFirst { it.name == item.name }
-        taskList = taskList.toMutableList()
-        taskList.removeAt(oldIndex)
-        taskList.add(item)
-        scope.launch {
-            taskFlow.emit(taskList)
-        }
+    override suspend fun taskReady(item: TaskItem) {
+        taskDAO.addTask(mapper.mapTaskItemToTaskDb(item))
     }
 
     override suspend fun listTasksFlow(): Flow<List<TaskItem>> {
-        if (taskList.isEmpty()) {
-            for (i in 0..item_number) {
-                val item = TaskItem(
-                    name = "Task Manager $i",
-                    date = "\"07 Jan 23 / Project\"",
-                    enabled = true,
-                    priority = 1
-                )
-                taskList.add(item)
+        return taskDAO.getTaskList().map {
+            it.map {
+                mapper.mapTaskDbToTaskItem(it)
             }
         }
-        taskFlow.emit(taskList)
-        return taskFlow
-    }
-
-    companion object {
-        private const val item_number = 7
     }
 }

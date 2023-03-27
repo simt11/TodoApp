@@ -1,4 +1,4 @@
-package com.sinx.coreDB.entity
+package com.sinx.coredbinterface.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
