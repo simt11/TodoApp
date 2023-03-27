@@ -6,7 +6,7 @@ import com.sinx.taskList.model.TaskRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class TaskRepositoryImpl(private val taskDAO: TaskDAO): TaskRepository {
+class TaskRepositoryImpl(private val taskDAO: TaskDAO) : TaskRepository {
 
     private val mapper = Mapper()
 

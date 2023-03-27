@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 interface TaskDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addTask (taskDB: TaskDbModel)
+    suspend fun addTask(taskDB: TaskDbModel)
 
     @Query("SELECT * FROM task ORDER BY name")
-    fun getTaskList() : Flow<List<TaskDbModel>>
+    fun getTaskList(): Flow<List<TaskDbModel>>
 
 //    @Query("DELETE FROM task WHERE name")
 //    fun deleteTaskFromList (name: String)

@@ -2,7 +2,7 @@ package com.sinx.coredbinterface
 
 import com.sinx.coredbinterface.dao.TaskDAO
 
-interface DbProvider  {
+interface DbProvider {
 
     fun getTaskDAO(): TaskDAO
 }

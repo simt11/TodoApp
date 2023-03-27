@@ -11,10 +11,10 @@ import com.sinx.coredbinterface.entity.TaskDbModel
 @Database(entities = [TaskDbModel::class, ProjectDbModel::class], version = 1, exportSchema = false)
 abstract class ToDoAppDatabase : RoomDatabase() {
 
-    abstract fun taskDao() : TaskDAO
+    abstract fun taskDao(): TaskDAO
 
-    companion object{
-        private var db : ToDoAppDatabase? = null
+    companion object {
+        private var db: ToDoAppDatabase? = null
 
         private const val DB_NAME = "todo.db"
 

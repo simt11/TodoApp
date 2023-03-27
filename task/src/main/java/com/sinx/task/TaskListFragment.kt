@@ -65,7 +65,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
             viewModal.taskList.collect { item ->
                 if (item.isEmpty()) {
                     val taskList = mutableListOf<TaskItem>()
-                    for (i in 0..7) {
+                    for (i in 0..number) {
                         val item = TaskItem(
                             name = "Task Manager $i",
                             date = "\"07 Jan 23 / Project\"",
@@ -99,6 +99,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
     }
 
     companion object {
+        private const val number = 7
         private const val ADD_TASK_URI = "app://task/addTaskFragment"
     }
 }

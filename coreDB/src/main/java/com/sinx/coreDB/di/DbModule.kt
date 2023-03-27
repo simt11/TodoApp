@@ -4,9 +4,9 @@ import android.content.Context
 import com.sinx.coreDB.ToDoAppDatabase
 import com.sinx.coredbinterface.dao.TaskDAO
 
-class DbModule  {
+class DbModule {
 
-    fun provideToDoAppDatabase (context: Context): ToDoAppDatabase {
+    fun provideToDoAppDatabase(context: Context): ToDoAppDatabase {
         return ToDoAppDatabase.getInstance(context)
     }
 
