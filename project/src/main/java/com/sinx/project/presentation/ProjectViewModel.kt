@@ -1,7 +1,11 @@
 package com.sinx.project.presentation
 
+import android.view.View
+import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.Navigation
 import com.sinx.project.data.ProjectListModel
 import com.sinx.project.domain.AddNewProjectUseCaseImpl
 import com.sinx.project.domain.GetNewProjectUseCaseImpl
@@ -30,5 +34,12 @@ internal class ProjectViewModel(
 
     fun addNewProject(newProject: ProjectListModel) {
         addNewProjectUseCaseImpl(newProject)
+    }
+
+    fun onClickListenerBottomSheet(view: View) {
+        val requestBottomSheetAddProjectFragment = NavDeepLinkRequest.Builder
+            .fromUri("app://project.BottomSheetAddProjectFragment".toUri())
+            .build()
+        Navigation.findNavController(view).navigate(requestBottomSheetAddProjectFragment)
     }
 }
