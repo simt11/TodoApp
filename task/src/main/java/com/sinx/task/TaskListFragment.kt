@@ -35,6 +35,13 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
     private val binding: TaskListLayoutBinding
         get() = checkNotNull(_binding)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (savedInstanceState == null) {
+            viewModal.initialize()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
