@@ -26,8 +26,7 @@ class TaskViewModel(
         }
     }
 
-    fun taskIsDone(item: TaskItem, isChecked: Boolean) {
-        val newItem = item.copy(enabled = !isChecked)
-        taskReadyUseCase(newItem)
+    suspend fun taskIsDone(item: TaskItem) {
+        taskReadyUseCase(item)
     }
 }

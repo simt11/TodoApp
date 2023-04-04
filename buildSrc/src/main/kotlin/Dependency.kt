@@ -17,6 +17,14 @@ object Dependency {
         const val appCompat = "androidx.appcompat:appcompat:$compatVersion"
     }
 
+    object Room {
+        private const val room_version = "2.5.0"
+
+        const val runtime = "androidx.room:room-runtime:$room_version"
+        const val compiler = "androidx.room:room-compiler:$room_version"
+        const val ktx = "androidx.room:room-ktx:$room_version"
+    }
+
     object Ui {
         private const val materialVersion = "1.7.0"
         private const val constraintLayoutVersion = "2.1.4"

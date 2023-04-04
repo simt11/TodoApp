@@ -11,18 +11,25 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
+import com.sinx.coredbinterface.DbProvider
 import com.sinx.task.databinding.TaskListLayoutBinding
 import com.sinx.task.presentation.TaskViewModel
 import com.sinx.task.presentation.TaskViewModelFactory
 import com.sinx.taskList.TaskItem
 import com.sinx.taskList.adapter.TaskListAdapter
 import com.sinx.taskList.decoration.DividerItemDecorationTask
+import kotlinx.coroutines.launch
 import com.sinx.core.R as core_R
 
 class TaskListFragment : Fragment(R.layout.task_list_layout) {
 
     private lateinit var taskListAdapter: TaskListAdapter
-    private lateinit var viewModal: TaskViewModel
+    private val viewModal by lazy {
+        ViewModelProvider(
+            this,
+            TaskViewModelFactory((requireContext().applicationContext as DbProvider).getTaskDAO())
+        )[TaskViewModel::class.java]
+    }
 
     private var _binding: TaskListLayoutBinding? = null
     private val binding: TaskListLayoutBinding
@@ -43,11 +50,12 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         taskListAdapter = TaskListAdapter(object : TaskListAdapter.OnTaskClickListener {
 
             override fun onCheckBoxItemClickListener(item: TaskItem, isChecked: Boolean) {
-                viewModal.taskIsDone(item, isChecked)
+                lifecycleScope.launch {
+                    viewModal.taskIsDone(item)
+                }
             }
         })
         binding.rvTaskList.adapter = taskListAdapter
-        viewModal = ViewModelProvider(this, TaskViewModelFactory())[TaskViewModel::class.java]
         binding.rvTaskList.addItemDecoration(
             DividerItemDecorationTask(
                 ContextCompat.getDrawable(requireContext(), core_R.drawable.divider)
@@ -55,7 +63,21 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
         )
         lifecycleScope.launchWhenStarted {
             viewModal.taskList.collect { item ->
-                taskListAdapter.submitList(item)
+                if (item.isEmpty()) {
+                    val taskList = mutableListOf<TaskItem>()
+                    for (i in 0..number) {
+                        val item = TaskItem(
+                            name = "Task Manager $i",
+                            date = "\"07 Jan 23 / Project\"",
+                            enabled = true,
+                            priority = 1
+                        )
+                        taskList.add(item)
+                        taskListAdapter.submitList(taskList)
+                    }
+                } else {
+                    taskListAdapter.submitList(item)
+                }
             }
         }
     }
@@ -77,6 +99,7 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
     }
 
     companion object {
+        private const val number = 7
         private const val ADD_TASK_URI = "app://task/addTaskFragment"
     }
 }

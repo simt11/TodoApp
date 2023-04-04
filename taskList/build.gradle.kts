@@ -15,6 +15,8 @@ dependencies {
     implementation(Dependency.Ui.material)
 
     implementation(project(Config.Modules.core))
+    api(project(Config.Modules.coreDbApi))
+    implementation(project(mapOf("path" to ":coreDB")))
 
     testImplementation(Dependency.Testing.junit)
     androidTestImplementation(Dependency.Testing.junitExt)
