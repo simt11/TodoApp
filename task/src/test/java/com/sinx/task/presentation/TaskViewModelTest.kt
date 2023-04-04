@@ -35,7 +35,7 @@ class TaskViewModelTest {
     fun checkInitSendListItems() {
         // begin
         val repo = object : TaskRepository {
-            override fun taskReady(item: TaskItem) {
+            override suspend fun taskReady(item: TaskItem) {
 //                детект ругаеться, на пустое тело
             }
 
@@ -63,7 +63,7 @@ class TaskViewModelTest {
         val scope = CoroutineScope(Dispatchers.Main)
         var actualItem: TaskItem? = null
         val repo = object : TaskRepository {
-            override fun taskReady(item: TaskItem) {
+            override suspend fun taskReady(item: TaskItem) {
                 scope.launch {
                     taskFlow.emit(
                         listOf(
@@ -89,7 +89,9 @@ class TaskViewModelTest {
         val viewModel = TaskViewModel(getTaskListUseCase, taskReadyUseCase)
         // when
         viewModel.initialize()
-        viewModel.taskIsDone(listItems.first(), true)
+        scope.launch {
+            viewModel.taskIsDone(listItems.first())
+        }
 
         val actualList = viewModel.taskList.replayCache.first()
         val expectedList = listOf(
@@ -106,13 +108,13 @@ class TaskViewModelTest {
     fun errorHandlingTest() {
         // begin
         val repo = object : TaskRepository {
-            override fun taskReady(item: TaskItem) {
+            override suspend fun taskReady(item: TaskItem) {
                 // todo
             }
 
             override suspend fun listTasksFlow(): Flow<List<TaskItem>> {
                 return flow {
-                    throw Exception()
+                    throw IllegalStateException("some text")
                 }
             }
         }
