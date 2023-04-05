@@ -1,19 +1,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Widget.Todo.AppWidget.Container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:theme="@style/Theme.Todo.AppWidgetContainer">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/appwidget_text"
-        style="@style/Widget.Todo.AppWidget.InnerView"
+        android:id="@+id/widget_title"
+        style="@style/Headline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:gravity="top"
+        android:text="@string/title_widget"
+        android:textColor="@color/black" />
+
+    <ListView
+        android:id="@+id/task_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="32dp" />
+
 </RelativeLayout>

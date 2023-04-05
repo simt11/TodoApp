@@ -1,4 +1,4 @@
-package com.sinx.widgettask
+package com.sinx.taskwidget
 
 import org.junit.Test
 

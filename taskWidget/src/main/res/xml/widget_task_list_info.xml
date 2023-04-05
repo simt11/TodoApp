@@ -3,9 +3,9 @@
     android:description="@string/app_widget_description"
     android:initialKeyguardLayout="@layout/widget_task_list"
     android:initialLayout="@layout/widget_task_list"
-    android:minWidth="40dp"
-    android:minHeight="40dp"
-    android:previewImage="@drawable/example_appwidget_preview"
+    android:previewLayout="@layout/widget_task_list"
     android:resizeMode="horizontal|vertical"
-    android:updatePeriodMillis="86400000"
+    android:targetCellWidth="3"
+    android:targetCellHeight="3"
+    android:updatePeriodMillis="21600000"
     android:widgetCategory="home_screen" />
