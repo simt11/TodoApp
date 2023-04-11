@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinx.core.databinding.AddButtonBinding
 import com.sinx.project.adapter.ProjectListAdapter
@@ -50,6 +51,15 @@ internal class ProjectFragment : Fragment(R.layout.project_layout) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navController =
+            Navigation.findNavController(requireActivity(), core_R.id.buttonAddNew)
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.navDeepLinkRequest.collect {
+                navController.navigate(it)
+            }
+        }
+
         projectListAdapter = ProjectListAdapter()
 
         binding.rvProjectList.layoutManager = LinearLayoutManager(context)
@@ -68,12 +78,12 @@ internal class ProjectFragment : Fragment(R.layout.project_layout) {
         )
 
         addButtonBinding.buttonAddNew.setOnClickListener {
-            viewModel.onClickListenerBottomSheet(it)
+            viewModel.onClickListenerBottomSheet()
         }
 
         setFragmentResultListener(Constans.ADD_PROJECT_REQUEST_KEY) { requestKey, bundle ->
             val result = bundle.getString(Constans.ADD_PROJECT_BUNDLE_KEY)
-            val newProject = ProjectListModel(result.toString(), "12.03.2023")
+            val newProject = ProjectListModel(result.toString(), viewModel.dateCreateProject())
             viewModel.addNewProject(newProject)
         }
     }
