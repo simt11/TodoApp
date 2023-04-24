@@ -26,10 +26,7 @@ internal class ProjectViewModel(
     )
     val projectList: SharedFlow<List<ProjectListModel>> = _projectList
 
-    private val _navDeepLinkRequest = MutableSharedFlow<NavDeepLinkRequest>(
-        replay = 1,
-        onBufferOverflow = BufferOverflow.DROP_LATEST
-    )
+    private val _navDeepLinkRequest = MutableSharedFlow<NavDeepLinkRequest>()
     val navDeepLinkRequest: SharedFlow<NavDeepLinkRequest> = _navDeepLinkRequest
 
     fun initialize() {
