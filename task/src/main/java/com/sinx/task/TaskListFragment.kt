@@ -98,7 +98,6 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
     }
 
     companion object {
-        private const val number = 7
         private const val ADD_TASK_URI = "app://task/addTaskFragment"
     }
 }
