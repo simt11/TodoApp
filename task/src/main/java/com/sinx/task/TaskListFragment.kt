@@ -74,8 +74,8 @@ class TaskListFragment : Fragment(R.layout.task_list_layout) {
             viewModal.taskList.collect { item ->
                 val empty = item.isEmpty()
                 binding.rvTaskList.isGone = empty
-                binding.imageView.isVisible = empty
-                binding.textView2.isVisible = empty
+                binding.ivNoTasks.isVisible = empty
+                binding.tvNoTasks.isVisible = empty
                 taskListAdapter.submitList(item)
             }
         }

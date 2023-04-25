@@ -20,17 +20,18 @@
         style="@style/Headline1"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvNoTasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/no_tasks"
         android:visibility="gone"
+        android:textColor="@color/grey"
         app:layout_constraintStart_toStartOf="@id/textView"
         app:layout_constraintTop_toBottomOf="@id/textView"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivNoTasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
